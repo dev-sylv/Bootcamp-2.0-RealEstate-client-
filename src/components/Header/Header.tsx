@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import { AiOutlineMenu } from "react-icons/ai"
+import { AiOutlineMenu } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 
 const Header = () => {
@@ -34,15 +35,21 @@ const Header = () => {
 
               <Navs>
                   <Nav>Home</Nav>
-                  <Nav>Properties</Nav>
-                  <Nav>Agents</Nav>
+                  {/* <Nav>Properties</Nav>
+                  <Nav>Agents</Nav> */}
                   <Nav>Contact Us</Nav>
                   <Nav>About Us</Nav>
               </Navs>
 
               <Buttons>
-                  <Button1>Sign in</Button1>
-                  <Button2>Sign up</Button2>
+
+                <NavLink to="/signin" style={{textDecoration:"none"}}>
+                  <Button1 style={{textDecoration:"none"}}>Sign in</Button1>
+                </NavLink>
+
+                <NavLink to="/getstarted" style={{textDecoration:"none"}}>
+                  <Button2 style={{textDecoration:"none"}}>Sign up</Button2>
+                </NavLink>
 
                   {/* <div>
                     <button className="login-btn">Login</button>
@@ -67,15 +74,20 @@ const Header = () => {
                   
 
                   <Home>Home</Home>
-                  <Home>Properties</Home>
-                  <Home>Agents</Home>
+                  {/* <Home>Properties</Home>
+                  <Home>Agents</Home> */}
                   <Home>Contact Us</Home>
                   <Home>About Us</Home>
   
                     <hr style={{border:"1px solid #511378", width: "95%"}} />
-                    
-                  <But1>Sign In</But1>
-                  <But2>Sign Up</But2>
+
+                  <NavLink to="/signin" style={{textDecoration:"none"}}>
+                    <But1 style={{textDecoration:"none"}}>Sign In</But1>
+                  </NavLink> 
+
+                  <NavLink to="getstarted" style={{textDecoration:"none"}}>
+                    <But2 style={{textDecoration:"none"}}>Sign Up</But2>
+                  </NavLink>
   
                 </Toggle> )
 
@@ -96,15 +108,20 @@ const Header = () => {
 
               <Navs>
                   <Nav>Home</Nav>
-                  <Nav>Properties</Nav>
-                  <Nav>Agents</Nav>
+                  {/* <Nav>Properties</Nav>
+                  <Nav>Agents</Nav> */}
                   <Nav>Contact Us</Nav>
                   <Nav>About Us</Nav>
               </Navs>
 
               <Buttons>
-                  <Button1>Sign in</Button1>
-                  <Button2>Sign up</Button2>
+                <NavLink to="/signin" style={{textDecoration:"none"}}>
+                  <Button1 style={{textDecoration:"none"}}>Sign in</Button1>
+                </NavLink>
+                
+                <NavLink to="/getstarted" style={{textDecoration:"none"}}>
+                  <Button2 style={{textDecoration:"none"}}>Sign up</Button2>
+                </NavLink>
 
               </Buttons>
 
@@ -120,15 +137,20 @@ const Header = () => {
                 <Toggle>
 
                   <Home>Home</Home>
-                  <Home>Properties</Home>
-                  <Home>Agents</Home>
+                  {/* <Home>Properties</Home>
+                  <Home>Agents</Home> */}
                   <Home>Contact Us</Home>
                   <Home>About Us</Home>
   
                     <hr style={{border:"1px solid #511378", width: "95%"}} />
+                
+                <NavLink to="/signin" style={{textDecoration:"none"}}>
+                  <But1 style={{textDecoration:"none"}}>Sign In</But1>
+                </NavLink>
 
-                  <But1>Sign In</But1>
-                  <But2>Sign Up</But2>
+                <NavLink to="/getstarted" style={{textDecoration:"none"}}>
+                  <But2 style={{textDecoration:"none"}}>Sign Up</But2>
+                </NavLink>
   
                 </Toggle>)
 
