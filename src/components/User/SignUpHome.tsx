@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { GoPerson } from "react-icons/go";
 import { FiUsers } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
 
 
 const SignUpHome = () => {
@@ -15,9 +16,13 @@ const SignUpHome = () => {
 
                     <Get>GET STARTED</Get>
 
-                    <Button1>Sign Up As User < FiUsers /></Button1>
+                    <NavLink to="signup">
+                        <Button1>Sign Up As User < FiUsers /></Button1>
+                    </NavLink>
 
-                    <Button1>Sign Up As Agent < GoPerson /></Button1>
+                    <NavLink to="signup">
+                        <Button1>Sign Up As Agent < GoPerson /></Button1>
+                    </NavLink>
 
                 </Left>
 
