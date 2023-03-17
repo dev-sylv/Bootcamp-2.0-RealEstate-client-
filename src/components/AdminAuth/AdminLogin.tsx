@@ -93,7 +93,7 @@ const Signin = () => {
               />
               <p>{errors?.password && errors?.password?.message}</p>
 
-              <Button type="button">Sign in</Button>
+              <Button type="submit">Sign in</Button>
 
               <Already>Already have an account? Sign up</Already>
             </Form>

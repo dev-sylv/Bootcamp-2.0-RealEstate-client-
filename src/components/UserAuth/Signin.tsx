@@ -39,11 +39,11 @@ const Signin = () => {
     mutationFn: UsersLogin,
     onSuccess: (data: any) => {
       dispatch(UserLogin(data.data));
-      console.log("User sign up", LoginUsers);
     },
   });
 
   const LoggedInUser = handleSubmit((data: any) => {
+    console.log(data);
     LoginUsers.mutate(data);
     reset();
     // navigate("/userhome");
@@ -51,7 +51,7 @@ const Signin = () => {
     Swal.fire({
       icon: "success",
       title: "User Login Successful",
-      text: LoginUsers!.data!.message,
+      //   text: LoginUsers!.data!.message,
     });
   });
 
@@ -94,7 +94,7 @@ const Signin = () => {
               />
               <p>{errors?.password && errors?.password?.message}</p>
 
-              <Button type="button">Sign in</Button>
+              <Button type="submit">Sign in</Button>
 
               <Already>Already have an account? Sign up</Already>
             </Form>

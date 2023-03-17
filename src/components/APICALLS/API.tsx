@@ -11,6 +11,11 @@ interface UserData {
   role: string;
   houses: {}[];
 }
+interface UserDatalog {
+  email: string;
+
+  password: string;
+}
 
 interface AgentData {
   name: string;
@@ -61,7 +66,7 @@ export const UserSignUp = async ({
 };
 
 // USER SIGN IN
-export const UsersLogin = async ({ email, password }: UserData) => {
+export const UsersLogin = async ({ email, password }: UserDatalog) => {
   return await axios
     .post(`${Endpoint}/loginuser`, {
       email,
