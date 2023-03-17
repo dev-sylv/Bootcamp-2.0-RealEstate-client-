@@ -20,14 +20,8 @@ const Signin = () => {
 
   // Setting up the schemas for our form using yup validator
   const Schema = yup.object({
-    name: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().min(8).required(),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password")])
-      .required("Password do not match"),
-    phoneno: yup.number().required("Please enter your phone number"),
   });
 
   type formData = yup.InferType<typeof Schema>;
@@ -40,23 +34,23 @@ const Signin = () => {
   } = useForm<formData>({ resolver: yupResolver(Schema) });
 
   //   To sign up users:
-  const UsersSignUp = useMutation({
-    mutationKey: ["New Users"],
-    mutationFn: UserSignUp,
+  const LoginUsers = useMutation({
+    mutationKey: ["Login Users"],
+    mutationFn: UsersLogin,
     onSuccess: (data: any) => {
       dispatch(UserLogin(data.data));
-      console.log("User sign up", UsersSignUp);
+      console.log("User sign up", LoginUsers);
     },
   });
 
-  const SignedUpUser = handleSubmit((data: any) => {
-    UsersSignUp.mutate(data);
+  const LoggedInUser = handleSubmit((data: any) => {
+    LoginUsers.mutate(data);
     reset();
-    navigate("/signin");
+    navigate("/userhome");
     Swal.fire({
       icon: "success",
-      title: "User Sign Up Successfull",
-      //   text: UsersSignUp!.data!.message,
+      title: "User Login Successful",
+      text: LoginUsers!.data!.message,
     });
   });
 
@@ -71,7 +65,7 @@ const Signin = () => {
           </Right>
 
           <Left>
-            <Form>
+            <Form onSubmit={LoggedInUser}>
               <div
                 style={{
                   fontSize: "20px",
@@ -83,11 +77,23 @@ const Signin = () => {
                 Sign in
               </div>
 
-              <Input type="text" placeholder="Email" />
+              <Input
+                type="text"
+                props={errors?.email ? "outline" : ""}
+                placeholder="Email"
+                {...register("email")}
+              />
+              <p>{errors?.email && errors?.email?.message}</p>
 
-              <Input type="password" placeholder="Password" />
+              <Input
+                props={errors?.password ? "outline" : ""}
+                type="password"
+                placeholder="Password"
+                {...register("password")}
+              />
+              <p>{errors?.password && errors?.password?.message}</p>
 
-              <Button>Sign in</Button>
+              <Button type="button">Sign in</Button>
 
               <Already>Already have an account? Sign up</Already>
             </Form>
@@ -131,10 +137,10 @@ const Button = styled.button`
   border-radius: 7px;
 `;
 
-const Input = styled.input`
+const Input = styled.input<{ props: string }>`
   width: 100%;
   height: 40px;
-  outline: none;
+  outline: ${({ props }) => (props ? "1px solid red" : "none")};
   border: none;
   box-shadow: 0 0 2px #039ee6;
   margin-bottom: 20px;
@@ -151,7 +157,7 @@ const Form = styled.form`
   padding-right: 40px;
 `;
 
-const Left = styled.form`
+const Left = styled.div`
   width: 40%;
   height: 100%;
   display: flex;
@@ -159,7 +165,7 @@ const Left = styled.form`
   align-items: center;
 `;
 
-const Hold = styled.form`
+const Hold = styled.div`
   width: 80%;
   height: 100%;
   display: flex;

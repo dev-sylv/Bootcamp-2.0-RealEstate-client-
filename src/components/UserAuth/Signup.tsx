@@ -45,7 +45,6 @@ const Signup = () => {
     mutationFn: UserSignUp,
     onSuccess: (data: any) => {
       dispatch(UserLogin(data.data));
-      console.log("User sign up", UsersSignUp);
     },
   });
 
@@ -55,7 +54,7 @@ const Signup = () => {
     navigate("/signin");
     Swal.fire({
       icon: "success",
-      title: "User Sign Up Successfull",
+      title: "User Sign Up Successful",
       //   text: UsersSignUp!.data!.message,
     });
   });
