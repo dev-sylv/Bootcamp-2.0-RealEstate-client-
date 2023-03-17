@@ -51,6 +51,12 @@ const Signup = () => {
   const SignedUpUser = handleSubmit((data) => {
     UsersSignUp.mutate(data);
     reset();
+    navigate("/signin");
+    Swal.fire({
+      icon: "success",
+      title: "User Sign Up Successfull",
+      text: UsersSignUp!.data!.message,
+    });
   });
 
   return (
@@ -78,13 +84,25 @@ const Signup = () => {
                 {...register("name")}
               />
 
-              <Input type="text" placeholder="Email" />
+              <Input type="text" placeholder="Email" {...register("email")} />
 
-              <Input type="number" placeholder="Phone Number" />
+              <Input
+                type="number"
+                placeholder="Phone Number"
+                {...register("phoneno")}
+              />
 
-              <Input type="password" placeholder="Password" />
+              <Input
+                type="password"
+                placeholder="Password"
+                {...register("password")}
+              />
 
-              <Input type="text" placeholder="Confirm Password" />
+              <Input
+                type="text"
+                placeholder="Confirm Password"
+                {...register("confirmPassword")}
+              />
 
               <Button>Sign Up</Button>
 
