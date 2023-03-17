@@ -10,7 +10,11 @@ import Contact from "../Contact/Contact";
 import HomeScreen from "../Home/HomeSreen";
 import Signin from "../UserAuth/Signin";
 import Signup from "../UserAuth/Signup";
+import AgentSignin from "../AgentAuth/Signin";
+import AgentSignUp from "../AgentAuth/Signup";
 import SignUpHome from "../UserAuth/SignUpHome";
+import SignInHome from "../UserAuth/SignInHome";
+import AdminSignin from "../AdminAuth/AdminLogin";
 
 const AllRoutes = () => {
   const element = useRoutes([
@@ -27,12 +31,28 @@ const AllRoutes = () => {
       element: <SignUpHome />,
     },
     {
-      path: "/signup",
+      path: "/login",
+      element: <SignInHome />,
+    },
+    {
+      path: "/user-signup",
       element: <Signup />,
     },
     {
-      path: "/signin",
+      path: "/user-signin",
       element: <Signin />,
+    },
+    {
+      path: "/agent-signup",
+      element: <AgentSignUp />,
+    },
+    {
+      path: "/agent-signin",
+      element: <AgentSignin />,
+    },
+    {
+      path: "/admin-login",
+      element: <AdminSignin />,
     },
     {
       path: "/about-us",
@@ -55,7 +75,7 @@ const DashRoute = styled.div`
 const Side = styled.div`
   width: 250px;
   height: 100vh;
-  postition: fixed;
+  position: fixed;
 `;
 
 const Bottom = styled.div`

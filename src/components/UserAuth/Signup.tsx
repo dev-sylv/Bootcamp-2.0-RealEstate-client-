@@ -51,10 +51,10 @@ const Signup = () => {
   const SignedUpUser = handleSubmit((data: any) => {
     UsersSignUp.mutate(data);
     reset();
-    navigate("/signin");
+    navigate("/user-signin");
     Swal.fire({
       icon: "success",
-      title: "User Sign Up Successfull",
+      title: "User Sign Up Successful",
       //   text: UsersSignUp!.data!.message,
     });
   });
@@ -75,7 +75,7 @@ const Signup = () => {
                   marginBottom: "20px",
                   textAlign: "center",
                 }}>
-                Sign Up
+                User Sign Up
               </div>
 
               <Input
@@ -167,6 +167,11 @@ const Button = styled.button`
   color: white;
   border: none;
   border-radius: 7px;
+  cursor: pointer;
+  transition: all 350ms;
+  :hover {
+    background-color: #039ee6c7;
+  }
 `;
 
 const Input = styled.input<{ props: string }>`
@@ -191,7 +196,7 @@ const Form = styled.form`
   margin-top: 40px;
 `;
 
-const Left = styled.form`
+const Left = styled.div`
   width: 40%;
   height: 100%;
   display: flex;
@@ -199,7 +204,7 @@ const Left = styled.form`
   align-items: center;
 `;
 
-const Hold = styled.form`
+const Hold = styled.div`
   width: 80%;
   height: 100%;
   display: flex;

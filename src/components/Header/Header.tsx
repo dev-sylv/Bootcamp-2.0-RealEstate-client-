@@ -83,7 +83,7 @@ const Header = () => {
 
                 <hr style={{ border: "1px solid #511378", width: "95%" }} />
 
-                <NavLink to="/signin" style={{ textDecoration: "none" }}>
+                <NavLink to="/login" style={{ textDecoration: "none" }}>
                   <But1 style={{ textDecoration: "none" }}>Sign In</But1>
                 </NavLink>
 

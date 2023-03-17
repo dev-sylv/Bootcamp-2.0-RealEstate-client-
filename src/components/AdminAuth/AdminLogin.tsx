@@ -3,15 +3,15 @@ import styled from "styled-components";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { AgentLogin } from "../Global/ReduxState";
+import { AdminLogin, AgentLogin, UserLogin } from "../Global/ReduxState";
 import { useAppDispatch } from "../Global/Store";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
-import { AgentSignUp } from "../APICALLS/API";
+import { LoginAdmin } from "../APICALLS/API";
 
-const Signup = () => {
+const Signin = () => {
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -20,14 +20,8 @@ const Signup = () => {
 
   // Setting up the schemas for our form using yup validator
   const Schema = yup.object({
-    name: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().min(8).required(),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password")])
-      .required("Password do not match"),
-    phoneno: yup.number().required("Please enter your phone number"),
   });
 
   type formData = yup.InferType<typeof Schema>;
@@ -39,22 +33,24 @@ const Signup = () => {
     register,
   } = useForm<formData>({ resolver: yupResolver(Schema) });
 
-  //   To sign up Agents:
-  const SignedUPAgent = useMutation({
-    mutationKey: ["New Agents"],
-    mutationFn: AgentSignUp,
+  //   To sign up users:
+  const Admin = useMutation({
+    mutationKey: ["Login Admin"],
+    mutationFn: LoginAdmin,
     onSuccess: (data: any) => {
-      dispatch(AgentLogin(data.data));
+      dispatch(AdminLogin(data.data));
+      console.log("User sign up", Admin);
     },
   });
 
-  const SignedUpAgent = handleSubmit((data: any) => {
-    SignedUPAgent.mutate(data);
+  const LoggedInAdmin = handleSubmit((data: any) => {
+    Admin.mutate(data);
     reset();
-    navigate("/agent-signin");
+    navigate("/userhome");
     Swal.fire({
       icon: "success",
-      title: "Agent Sign Up Successful",
+      title: "User Login Successful",
+      text: Admin!.data!.message,
     });
   });
 
@@ -64,8 +60,12 @@ const Signup = () => {
         {/* <Black></Black> */}
 
         <Hold>
+          <Right>
+            <RightImg src="/images/sign.svg" />
+          </Right>
+
           <Left>
-            <Form onSubmit={SignedUpAgent}>
+            <Form onSubmit={LoggedInAdmin}>
               <div
                 style={{
                   fontSize: "20px",
@@ -74,16 +74,8 @@ const Signup = () => {
                   marginBottom: "20px",
                   textAlign: "center",
                 }}>
-                Agent Sign Up
+                Agents Login
               </div>
-
-              <Input
-                type="text"
-                placeholder="Full Name"
-                {...register("name")}
-                props={errors?.name ? "outline" : ""}
-              />
-              <p>{errors?.name && errors?.name?.message}</p>
 
               <Input
                 type="text"
@@ -94,14 +86,6 @@ const Signup = () => {
               <p>{errors?.email && errors?.email?.message}</p>
 
               <Input
-                props={errors?.phoneno ? "outline" : ""}
-                type="number"
-                placeholder="Phone Number"
-                {...register("phoneno")}
-              />
-              <p>{errors?.phoneno && errors?.phoneno?.message}</p>
-
-              <Input
                 props={errors?.password ? "outline" : ""}
                 type="password"
                 placeholder="Password"
@@ -109,40 +93,25 @@ const Signup = () => {
               />
               <p>{errors?.password && errors?.password?.message}</p>
 
-              <Input
-                props={errors?.confirmPassword ? "outline" : ""}
-                type="text"
-                placeholder="Confirm Password"
-                {...register("confirmPassword")}
-              />
-              <p>
-                {errors?.confirmPassword && errors?.confirmPassword?.message}
-              </p>
+              <Button type="button">Sign in</Button>
 
-              <Button type="submit">Sign Up</Button>
-
-              <Already>Already have an account? Sign in</Already>
+              <Already>Already have an account? Sign up</Already>
             </Form>
           </Left>
-
-          <Right>
-            <RightImg src="/images/signup.svg" />
-          </Right>
         </Hold>
       </Body>
     </>
   );
 };
 
-export default Signup;
+export default Signin;
 
 // const Body = styled.div``;
 
 // const Body = styled.div``;
 
 const RightImg = styled.img`
-  width: 550px;
-  color: #039ee6;
+  width: 400px;
 `;
 
 const Right = styled.div`
@@ -166,11 +135,6 @@ const Button = styled.button`
   color: white;
   border: none;
   border-radius: 7px;
-  cursor: pointer;
-  transition: all 350ms;
-  :hover {
-    background-color: #039ee6c7;
-  }
 `;
 
 const Input = styled.input<{ props: string }>`
@@ -186,13 +150,11 @@ const Input = styled.input<{ props: string }>`
 
 const Form = styled.form`
   width: 270px;
-  /* background-color: red; */
-  height: 450px;
+  height: 300px;
   box-shadow: 0 0 3px #039ee6;
   border-radius: 10px 0 10px 0;
   padding: 30px;
   padding-right: 40px;
-  margin-top: 40px;
 `;
 
 const Left = styled.div`

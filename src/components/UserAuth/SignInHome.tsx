@@ -11,15 +11,21 @@ const SignUpHome = () => {
         <Left>
           <Get>GET STARTED</Get>
 
-          <NavLink style={{ textDecoration: "none" }} to="/user-signup">
+          <NavLink style={{ textDecoration: "none" }} to="/user-signin">
             <Button1>
-              Sign Up As User <FiUsers />
+              Sign In As User <FiUsers />
             </Button1>
           </NavLink>
 
-          <NavLink style={{ textDecoration: "none" }} to="/agent-signup">
+          <NavLink style={{ textDecoration: "none" }} to="/agent-signin">
             <Button1>
-              Sign Up As Agent <GoPerson />
+              Sign In As Agent <GoPerson />
+            </Button1>
+          </NavLink>
+
+          <NavLink style={{ textDecoration: "none" }} to="/admin-login">
+            <Button1>
+              Sign In As Admin <GoPerson />
             </Button1>
           </NavLink>
         </Left>

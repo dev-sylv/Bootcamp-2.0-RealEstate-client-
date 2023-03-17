@@ -55,14 +55,14 @@ const ReduxState = createSlice({
 	UserLogOut: (state) =>{
 		state.currentUser = null
 	},
-    AgentLogin: (state, {payload}: PayloadAction<UserData>) =>{
-		state.currentUser = payload
+    AgentLogin: (state, {payload}: PayloadAction<AgentData>) =>{
+		state.Agent = payload
 	},
 	AgentLogOut: (state) =>{
-		state.currentUser = null
+		state.Agent = null
 	},
-    AdminLogin: (state, {payload}: PayloadAction<UserData>) =>{
-		state.currentUser = payload
+    AdminLogin: (state, {payload}: PayloadAction<AdminData>) =>{
+		state.Agent = payload
 	},
   }
 });
