@@ -48,7 +48,7 @@ color: #e4e932;
 const Contain = styled.div`
 width: 95%;
 height: 100%;
-background-color: #511378;
+background-color: #039EE6;
 border-radius: 10px 0 10px 0;
 display: flex;
 flex-direction: column;

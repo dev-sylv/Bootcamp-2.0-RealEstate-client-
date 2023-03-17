@@ -76,7 +76,8 @@ height: 70px;
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: #511378;
+background-color: #039EE6;
 position: fixed;
+z-index: 500;
 `;
 

@@ -152,7 +152,7 @@ width: 23%;
 height: 120px;
 // background-color: #511378;
 border-radius: 10px 0 10px 0;
-box-shadow: 0 0 3px #511378;
+box-shadow: 0 0 3px #039EE6;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -171,7 +171,7 @@ margin-top: 30px;
 div{
     font-size: 25px;
     font-weight: 700;
-    color: #511378;
+    color: #039EE6;
 }
 `;
 

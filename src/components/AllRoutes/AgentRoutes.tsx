@@ -4,6 +4,7 @@ import styled from "styled-components";
 import AgentComp from "../AgentDashboard/AgentComp";
 import AgentHeader from "../AgentDashboard/AgentHeader";
 import AgentSidebar from "../AgentDashboard/AgentSidebar";
+import AgentUpload from "../AgentDashboard/AgentUpload";
 
 
 const AgentRoutes = () => {
@@ -13,10 +14,10 @@ const AgentRoutes = () => {
             path: "/agenthome",
             element: <AgentComp />,
         },
-        // {
-        //     path: "/adminupload",
-        //     element: <AdminUpload />,
-        // },
+        {
+            path: "/agentupload",
+            element: <AgentUpload />,
+        },
         // {
         //     path: "/houseforsale",
         //     element: <HouseSale />,

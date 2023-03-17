@@ -4,6 +4,7 @@ import { FaHome, FaCloudUploadAlt }  from "react-icons/fa";
 import { MdPointOfSale,  } from "react-icons/md";
 import { AiFillMessage, AiOutlineLogout } from "react-icons/ai";
 import { FiUsers } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
 
 
 const AgentSidebar = () => {
@@ -20,21 +21,23 @@ const AgentSidebar = () => {
 
                     <Admin>AGENT</Admin>
 
-                    <Home>
+                    <NavLink style={{textDecoration:"none"
+                    }} to="/agenthome"><Home>
                         <Icon>
                             <FaHome />
                         </Icon>
 
                         <HomeText>Home</HomeText>
-                    </Home>
+                    </Home></NavLink>
 
-                    <Home>
+                    <NavLink style={{textDecoration:"none"
+                    }} to="/agentupload"><Home>
                         <Icon>
                             <MdPointOfSale />
                         </Icon>
 
                         <HomeText>Upload House</HomeText>
-                    </Home>
+                    </Home></NavLink>
 
                     <Home>
                         <Icon>

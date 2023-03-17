@@ -4,6 +4,7 @@ import DashHeader from "./DashHeader";
 import { FaHome, FaCloudUploadAlt }  from "react-icons/fa";
 import { MdPointOfSale,  } from "react-icons/md";
 import { AiFillMessage, AiOutlineLogout } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 
 const SideBar = () => {
@@ -20,37 +21,44 @@ const SideBar = () => {
 
                     <Admin>ADMINISTRATOR</Admin>
 
-                    <Home>
+                    <NavLink style={{textDecoration:"none", color:"white"
+                    }} to="/admindashboard"><Home>
                         <Icon>
                             <FaHome />
                         </Icon>
 
                         <HomeText>Home</HomeText>
-                    </Home>
+                    </Home></NavLink>
 
-                    <Home>
+                    <NavLink style={{textDecoration:"none", color:"white"
+                    
+                    }} to="/houseforsale"><Home>
                         <Icon>
                             <MdPointOfSale />
                         </Icon>
 
                         <HomeText>House For Sale</HomeText>
-                    </Home>
+                    </Home></NavLink>
 
-                    <Home>
+                    <NavLink style={{textDecoration:"none", color:"white"
+                    
+                    }}  to="/houseforrent"><Home>
                         <Icon>
                             <FaHome />
                         </Icon>
 
                         <HomeText>House For Rent</HomeText>
-                    </Home>
+                    </Home></NavLink>
 
-                    <Home>
+                    <NavLink style={{textDecoration:"none", color:"white"
+                    
+                    }} to="/adminupload"><Home>
                         <Icon>
                             <FaCloudUploadAlt />
                         </Icon>
 
                         <HomeText>Upload House</HomeText>
-                    </Home>
+                    </Home></NavLink>
 
                     <Home>
                         <Icon>
@@ -107,6 +115,11 @@ display: flex;
 align-items: center;
 margin-bottom: 30px;
 cursor: pointer;
+transition: all 350ms all-ease-out;
+
+// :hover{
+//     color: #039EE6;
+// }
 `;
 
 const Admin = styled.div`
@@ -137,7 +150,8 @@ display: flex;
 justify: content;
 align-items: center;
 position: fixed;
-background-color: #511378;
+background-color: #039EE6;
+z-index: 500;
 `;
 
 
