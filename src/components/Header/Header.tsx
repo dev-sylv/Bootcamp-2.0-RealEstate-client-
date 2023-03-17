@@ -32,11 +32,14 @@ const Header = () => {
               <NavLink style={{ textDecoration: "none" }} to="/">
                 <Nav>Home</Nav>
               </NavLink>
+
               <Nav>Properties</Nav>
               {/* <Nav>Agents</Nav> */}
+
               <NavLink style={{ textDecoration: "none" }} to="/contact">
                 <Nav>Contact Us</Nav>
               </NavLink>
+
               <NavLink style={{ textDecoration: "none" }} to="/about-us">
                 <Nav>About Us</Nav>
               </NavLink>
@@ -74,7 +77,9 @@ const Header = () => {
                 <NavLink style={{ textDecoration: "none" }} to="/contact">
                   <Home>Contact Us</Home>
                 </NavLink>
-                <Home>About Us</Home>
+                <NavLink style={{ textDecoration: "none" }} to="/about-us">
+                  <Home>About Us</Home>
+                </NavLink>
 
                 <hr style={{ border: "1px solid #511378", width: "95%" }} />
 
@@ -107,6 +112,9 @@ const Header = () => {
                 <Nav>Contact Us</Nav>
               </NavLink>
 
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to="/about-us"></NavLink>
               <Nav>About Us</Nav>
             </Navs>
 
@@ -134,7 +142,9 @@ const Header = () => {
                 <NavLink style={{ textDecoration: "none" }} to="/contact">
                   <Home>Contact Us</Home>
                 </NavLink>
-                <Home>About Us</Home>
+                <NavLink style={{ textDecoration: "none" }} to="/about-us">
+                  <Home>About Us</Home>
+                </NavLink>
 
                 <hr style={{ border: "1px solid #511378", width: "95%" }} />
 
