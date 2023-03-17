@@ -2,29 +2,51 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UserData {
 	name: string;
-	email: string;
-	password: string;
-	confirmPassword: string
+    email: string;
+    Image: string;
+    Bio: string;
+    phoneno: number;
+    password: string;
+    confirmPassword: string;
+    role: string;
+    houses: {}[];
 }
 
-interface CartData {
-	title: string;
-	desc: string;
-	price: number;
-	CartQuantity: number;
-	_id: string;
-	category: string;
+interface AgentData {
+	name: string;
+    email: string;
+    Image: string;
+    Bio: string;
+    phoneno: number;
+    password: string;
+    confirmPassword: string;
+    role: string;
+    houses: {}[];
+    users: {}[];
+}
+
+interface AdminData {
+	name: string;
+    email: string;
+    Image: string;
+    Bio: string;
+    phoneno: number;
+    password: string;
+    confirmPassword: string;
+    role: string;
+    houses: {}[];
+    users: {}[];
+    agents: {}[];
 }
 
 const initialState = {
 	currentUser : {} as UserData | null,
-	cart: [] as Array<CartData>,
-	totalPrice: 0,
-	totalQuantity: 0
+	Agent: {} as AgentData | null,
+	Admin: {} as AdminData | null
 }
 
 const ReduxState = createSlice({
-  name: "First-Ecommerce",
+  name: "First Real-Estate",
   initialState,
   reducers: {
 	UserLogin: (state, {payload}: PayloadAction<UserData>) =>{
@@ -33,38 +55,18 @@ const ReduxState = createSlice({
 	UserLogOut: (state) =>{
 		state.currentUser = null
 	},
-	addToCart : (state, {payload}: PayloadAction<CartData>) =>{
-		const CheckPosition = state.cart.findIndex((position) => position._id === payload._id)
-
-		if (CheckPosition >= 0) {
-			state.cart[CheckPosition].CartQuantity += 1
-		} else {
-			state.cart.push({
-				...payload,
-				CartQuantity: 1
-			})
-		}
-		state.totalQuantity += 1
+    AgentLogin: (state, {payload}: PayloadAction<UserData>) =>{
+		state.currentUser = payload
 	},
-	removeFromCart: (state, {payload}: PayloadAction<CartData>) =>{
-		const outOfCart = state.cart.findIndex((position) =>
-			position._id === payload._id
-		)
-
-		if (state.cart[outOfCart].CartQuantity > 1) {
-			state.cart[outOfCart].CartQuantity -= 1
-		} else {
-			state.cart = state.cart.filter((out) => out._id !== payload._id)
-		}
-		state.totalQuantity -= 1
+	AgentLogOut: (state) =>{
+		state.currentUser = null
 	},
-	clearCart: (state) =>{
-		state.cart = [];
-		state.totalQuantity = 0
+    AdminLogin: (state, {payload}: PayloadAction<UserData>) =>{
+		state.currentUser = payload
 	},
   }
 });
 
-export const { UserLogin, UserLogOut, addToCart, clearCart, removeFromCart } = ReduxState.actions
+export const { UserLogin, UserLogOut, AgentLogin, AgentLogOut, AdminLogin } = ReduxState.actions
 
 export default ReduxState.reducer
