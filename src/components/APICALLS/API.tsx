@@ -12,7 +12,28 @@ interface UserData {
   houses: {}[];
 }
 
+const Endpoint = "https://realestate-kuk6.onrender.com/api";
+
 // USER SIGN UP
+export const UserSignUp = async ({
+  name,
+  email,
+  password,
+  confirmPassword,
+  phoneno,
+}: UserData) => {
+  return await axios
+    .post(`${Endpoint}/registeruser`, {
+      name,
+      email,
+      password,
+      confirmPassword,
+      phoneno,
+    })
+    .then((res) => {
+      res.data;
+    });
+};
 
 // USER SIGN IN
 
