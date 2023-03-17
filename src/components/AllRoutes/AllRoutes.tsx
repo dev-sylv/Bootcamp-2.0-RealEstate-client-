@@ -13,6 +13,7 @@ import Signup from "../UserAuth/Signup";
 import AgentSignin from "../AgentAuth/Signin";
 import AgentSignUp from "../AgentAuth/Signup";
 import SignUpHome from "../UserAuth/SignUpHome";
+import AdminSignin from "../AdminAuth/AdminLogin";
 
 const AllRoutes = () => {
   const element = useRoutes([
@@ -43,6 +44,10 @@ const AllRoutes = () => {
     {
       path: "/agent-signin",
       element: <AgentSignin />,
+    },
+    {
+      path: "/admin-login",
+      element: <AdminSignin />,
     },
     {
       path: "/about-us",
