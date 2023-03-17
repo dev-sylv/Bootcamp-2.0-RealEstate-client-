@@ -1,10 +1,17 @@
-import React from "react";
+import axios from "axios";
 
-const API = () => {
-  return <div>API</div>;
-};
+interface UserData {
+  name: string;
+  email: string;
+  Image: string;
+  Bio: string;
+  phoneno: number;
+  password: string;
+  confirmPassword: string;
+  role: string;
+  houses: {}[];
+}
 
-export default API;
 // USER SIGN UP
 
 // USER SIGN IN
