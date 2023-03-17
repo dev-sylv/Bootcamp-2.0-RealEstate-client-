@@ -82,27 +82,43 @@ const Signup = () => {
                 type="text"
                 placeholder="Full Name"
                 {...register("name")}
+                props={errors?.name ? "outline" : ""}
               />
-
-              <Input type="text" placeholder="Email" {...register("email")} />
+              <p>{errors?.name && errors?.name?.message}</p>
 
               <Input
+                type="text"
+                props={errors?.email ? "outline" : ""}
+                placeholder="Email"
+                {...register("email")}
+              />
+              <p>{errors?.email && errors?.email?.message}</p>
+
+              <Input
+                props={errors?.phoneno ? "outline" : ""}
                 type="number"
                 placeholder="Phone Number"
                 {...register("phoneno")}
               />
+              <p>{errors?.phoneno && errors?.phoneno?.message}</p>
 
               <Input
+                props={errors?.password ? "outline" : ""}
                 type="password"
                 placeholder="Password"
                 {...register("password")}
               />
+              <p>{errors?.password && errors?.password?.message}</p>
 
               <Input
+                props={errors?.confirmPassword ? "outline" : ""}
                 type="text"
                 placeholder="Confirm Password"
                 {...register("confirmPassword")}
               />
+              <p>
+                {errors?.confirmPassword && errors?.confirmPassword?.message}
+              </p>
 
               <Button>Sign Up</Button>
 
@@ -153,10 +169,10 @@ const Button = styled.button`
   border-radius: 7px;
 `;
 
-const Input = styled.input`
+const Input = styled.input<{ props: string }>`
   width: 100%;
   height: 40px;
-  outline: none;
+  outline: ${({ props }) => (props ? "1px solid red" : "none")};
   border: none;
   box-shadow: 0 0 2px #039ee6;
   margin-bottom: 20px;
