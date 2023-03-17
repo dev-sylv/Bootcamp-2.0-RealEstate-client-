@@ -66,7 +66,7 @@ const Signup = () => {
 
         <Hold>
           <Left>
-            <Form>
+            <Form onSubmit={SignedUpUser}>
               <div
                 style={{
                   fontSize: "20px",
@@ -120,7 +120,7 @@ const Signup = () => {
                 {errors?.confirmPassword && errors?.confirmPassword?.message}
               </p>
 
-              <Button>Sign Up</Button>
+              <Button type="submit">Sign Up</Button>
 
               <Already>Already have an account? Sign in</Already>
             </Form>
@@ -182,7 +182,7 @@ const Input = styled.input<{ props: string }>`
 
 const Form = styled.form`
   width: 270px;
-  background-color: red;
+  /* background-color: red; */
   height: 450px;
   box-shadow: 0 0 3px #039ee6;
   border-radius: 10px 0 10px 0;
