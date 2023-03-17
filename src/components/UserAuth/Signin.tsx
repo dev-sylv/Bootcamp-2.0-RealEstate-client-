@@ -46,7 +46,8 @@ const Signin = () => {
   const LoggedInUser = handleSubmit((data: any) => {
     LoginUsers.mutate(data);
     reset();
-    navigate("/userhome");
+    // navigate("/userhome");
+    navigate("/");
     Swal.fire({
       icon: "success",
       title: "User Login Successful",
@@ -74,7 +75,7 @@ const Signin = () => {
                   marginBottom: "20px",
                   textAlign: "center",
                 }}>
-                Sign in
+                User Sign in
               </div>
 
               <Input
@@ -135,6 +136,11 @@ const Button = styled.button`
   color: white;
   border: none;
   border-radius: 7px;
+  cursor: pointer;
+  transition: all 350ms;
+  :hover {
+    background-color: #039ee6c7;
+  }
 `;
 
 const Input = styled.input<{ props: string }>`

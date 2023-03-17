@@ -12,6 +12,33 @@ interface UserData {
   houses: {}[];
 }
 
+interface AgentData {
+  name: string;
+  email: string;
+  Image: string;
+  Bio: string;
+  phoneno: number;
+  password: string;
+  confirmPassword: string;
+  role: string;
+  houses: {}[];
+  users: {}[];
+}
+
+interface AdminData {
+  name: string;
+  email: string;
+  Image: string;
+  Bio: string;
+  phoneno: number;
+  password: string;
+  confirmPassword: string;
+  role: string;
+  houses: {}[];
+  users: {}[];
+  agents: {}[];
+}
+
 const Endpoint = "https://realestate-kuk6.onrender.com/api";
 
 // USER SIGN UP
@@ -44,5 +71,40 @@ export const UsersLogin = async ({ email, password }: UserData) => {
 };
 
 // AGENT SIGN UP
+export const AgentSignUp = async ({
+  name,
+  email,
+  password,
+  confirmPassword,
+  phoneno,
+}: AgentData) => {
+  return await axios
+    .post(`${Endpoint}/registeragents`, {
+      name,
+      email,
+      password,
+      confirmPassword,
+      phoneno,
+    })
+    .then((res) => res.data.data);
+};
 
 // AGENT SIGN IN
+export const AgentsLogin = async ({ email, password }: AgentData) => {
+  return await axios
+    .post(`${Endpoint}/loginagents`, {
+      email,
+      password,
+    })
+    .then((res) => res.data.data);
+};
+
+//   ADMIN SIGN IN
+export const AdminLogin = async ({ email, password }: AdminData) => {
+  return await axios
+    .post(`${Endpoint}/loginadmin`, {
+      email,
+      password,
+    })
+    .then((res) => res.data.data);
+};
