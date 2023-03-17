@@ -10,6 +10,8 @@ import Contact from "../Contact/Contact";
 import HomeScreen from "../Home/HomeSreen";
 import Signin from "../UserAuth/Signin";
 import Signup from "../UserAuth/Signup";
+import AgentSignin from "../AgentAuth/Signin";
+import AgentSignUp from "../AgentAuth/Signup";
 import SignUpHome from "../UserAuth/SignUpHome";
 
 const AllRoutes = () => {
@@ -27,12 +29,20 @@ const AllRoutes = () => {
       element: <SignUpHome />,
     },
     {
-      path: "/signup",
+      path: "/user-signup",
       element: <Signup />,
     },
     {
-      path: "/signin",
+      path: "/user-signin",
       element: <Signin />,
+    },
+    {
+      path: "/agent-signup",
+      element: <AgentSignUp />,
+    },
+    {
+      path: "/agent-signin",
+      element: <AgentSignin />,
     },
     {
       path: "/about-us",
@@ -55,7 +65,7 @@ const DashRoute = styled.div`
 const Side = styled.div`
   width: 250px;
   height: 100vh;
-  postition: fixed;
+  position: fixed;
 `;
 
 const Bottom = styled.div`

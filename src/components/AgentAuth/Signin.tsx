@@ -3,13 +3,13 @@ import styled from "styled-components";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { UserLogin } from "../Global/ReduxState";
+import { AgentLogin, UserLogin } from "../Global/ReduxState";
 import { useAppDispatch } from "../Global/Store";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
-import { UsersLogin } from "../APICALLS/API";
+import { LoginAgents } from "../APICALLS/API";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -34,23 +34,23 @@ const Signin = () => {
   } = useForm<formData>({ resolver: yupResolver(Schema) });
 
   //   To sign up users:
-  const LoginUsers = useMutation({
-    mutationKey: ["Login Users"],
-    mutationFn: UsersLogin,
+  const AgentsLogin = useMutation({
+    mutationKey: ["Login Agent"],
+    mutationFn: LoginAgents,
     onSuccess: (data: any) => {
-      dispatch(UserLogin(data.data));
-      console.log("User sign up", LoginUsers);
+      dispatch(AgentLogin(data.data));
+      console.log("User sign up", LoginAgents);
     },
   });
 
   const LoggedInUser = handleSubmit((data: any) => {
-    LoginUsers.mutate(data);
+    AgentsLogin.mutate(data);
     reset();
     navigate("/userhome");
     Swal.fire({
       icon: "success",
       title: "User Login Successful",
-      text: LoginUsers!.data!.message,
+      text: AgentsLogin!.data!.message,
     });
   });
 

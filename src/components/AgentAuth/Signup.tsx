@@ -1,54 +1,138 @@
 import React from "react";
 import styled from "styled-components";
-
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { AgentLogin } from "../Global/ReduxState";
+import { useAppDispatch } from "../Global/Store";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import { AgentSignUp } from "../APICALLS/API";
 
 const Signup = () => {
+  const navigate = useNavigate();
 
-    return(
-        <>
+  const dispatch = useAppDispatch();
 
-            <Body>
+  const queryclient = useQueryClient();
 
-                {/* <Black></Black> */}
+  // Setting up the schemas for our form using yup validator
+  const Schema = yup.object({
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(8).required(),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password")])
+      .required("Password do not match"),
+    phoneno: yup.number().required("Please enter your phone number"),
+  });
 
-                <Hold>
+  type formData = yup.InferType<typeof Schema>;
 
-                    <Left>
-                        <Form>
+  const {
+    handleSubmit,
+    reset,
+    formState: { errors },
+    register,
+  } = useForm<formData>({ resolver: yupResolver(Schema) });
 
-                            <div style={{fontSize:"20px", color:"#039EE6", fontWeight
-                        :"700", marginBottom:"20px", textAlign:"center" }}>Sign Up</div>
+  //   To sign up Agents:
+  const SignedUPAgent = useMutation({
+    mutationKey: ["New Agents"],
+    mutationFn: AgentSignUp,
+    onSuccess: (data: any) => {
+      dispatch(AgentLogin(data.data));
+    },
+  });
 
-                            <Input type="text" placeholder="Full Name" />
+  const SignedUpAgent = handleSubmit((data: any) => {
+    SignedUPAgent.mutate(data);
+    reset();
+    navigate("/agent-signin");
+    Swal.fire({
+      icon: "success",
+      title: "Agent Sign Up Successful",
+    });
+  });
 
-                            <Input type="text" placeholder="Email" />
+  return (
+    <>
+      <Body>
+        {/* <Black></Black> */}
 
-                            <Input type="number" placeholder="Phone Number" />
+        <Hold>
+          <Left>
+            <Form onSubmit={SignedUpAgent}>
+              <div
+                style={{
+                  fontSize: "20px",
+                  color: "#039EE6",
+                  fontWeight: "700",
+                  marginBottom: "20px",
+                  textAlign: "center",
+                }}>
+                Agent Sign Up
+              </div>
 
-                            <Input type="password" placeholder="Password" />
+              <Input
+                type="text"
+                placeholder="Full Name"
+                {...register("name")}
+                props={errors?.name ? "outline" : ""}
+              />
+              <p>{errors?.name && errors?.name?.message}</p>
 
-                            <Input type="text" placeholder="Confirm Password" />
+              <Input
+                type="text"
+                props={errors?.email ? "outline" : ""}
+                placeholder="Email"
+                {...register("email")}
+              />
+              <p>{errors?.email && errors?.email?.message}</p>
 
-                            <Button>Sign Up</Button>
+              <Input
+                props={errors?.phoneno ? "outline" : ""}
+                type="number"
+                placeholder="Phone Number"
+                {...register("phoneno")}
+              />
+              <p>{errors?.phoneno && errors?.phoneno?.message}</p>
 
-                            <Already>Already have an account? Sign in</Already>
+              <Input
+                props={errors?.password ? "outline" : ""}
+                type="password"
+                placeholder="Password"
+                {...register("password")}
+              />
+              <p>{errors?.password && errors?.password?.message}</p>
 
+              <Input
+                props={errors?.confirmPassword ? "outline" : ""}
+                type="text"
+                placeholder="Confirm Password"
+                {...register("confirmPassword")}
+              />
+              <p>
+                {errors?.confirmPassword && errors?.confirmPassword?.message}
+              </p>
 
-                        </Form>
-                    </Left>
+              <Button type="submit">Sign Up</Button>
 
-                    <Right>
-                        <RightImg src="/images/signup.svg" />
-                    </Right>
+              <Already>Already have an account? Sign in</Already>
+            </Form>
+          </Left>
 
-                </Hold>
-
-            </Body>
-
-
-        </>
-    )
-}
+          <Right>
+            <RightImg src="/images/signup.svg" />
+          </Right>
+        </Hold>
+      </Body>
+    </>
+  );
+};
 
 export default Signup;
 
@@ -57,68 +141,74 @@ export default Signup;
 // const Body = styled.div``;
 
 const RightImg = styled.img`
-width: 550px;
-color: #039EE6;
+  width: 550px;
+  color: #039ee6;
 `;
 
 const Right = styled.div`
-width: 50%;
+  width: 50%;
 `;
 
 // const Body = styled.div``;
 
 const Already = styled.div`
-font-size: 13px;
-cursor: pointer;
-color: #039EE6;
-margin-top: 15px;
-text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  color: #039ee6;
+  margin-top: 15px;
+  text-align: center;
 `;
 
 const Button = styled.button`
-width: 105%;
-height: 40px;
-background: #039EE6;
-color: white;
-border: none;
-border-radius: 7px;
+  width: 105%;
+  height: 40px;
+  background: #039ee6;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 350ms;
+  :hover {
+    background-color: #039ee6c7;
+  }
 `;
 
-const Input = styled.input`
-width: 100%;
-height: 40px;
-outline: none;
-border: none;
-box-shadow: 0 0 2px #039EE6;
-margin-bottom: 20px;
-border-radius: 7px;
-padding-left: 10px;
+const Input = styled.input<{ props: string }>`
+  width: 100%;
+  height: 40px;
+  outline: ${({ props }) => (props ? "1px solid red" : "none")};
+  border: none;
+  box-shadow: 0 0 2px #039ee6;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  padding-left: 10px;
 `;
 
 const Form = styled.form`
-width: 270px;
-height: 450px;
-box-shadow: 0 0 3px #039EE6;
-border-radius: 10px 0 10px 0;
-padding: 30px;
-padding-right: 40px;
-margin-top: 40px;
+  width: 270px;
+  /* background-color: red; */
+  height: 450px;
+  box-shadow: 0 0 3px #039ee6;
+  border-radius: 10px 0 10px 0;
+  padding: 30px;
+  padding-right: 40px;
+  margin-top: 40px;
 `;
 
-const Left = styled.form`
-width: 40%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+const Left = styled.div`
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const Hold = styled.form`
-width: 80%;
-height: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
+const Hold = styled.div`
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 // const Black = styled.div`
@@ -130,12 +220,12 @@ align-items: center;
 // `;
 
 const Body = styled.div`
-width: 100%;
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-// background-image: url("/images/room4.jpg");
-// background-size: cover;
-// position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-image: url("/images/room4.jpg");
+  // background-size: cover;
+  // position: relative;
 `;

@@ -51,7 +51,7 @@ const Signup = () => {
   const SignedUpUser = handleSubmit((data: any) => {
     UsersSignUp.mutate(data);
     reset();
-    navigate("/signin");
+    navigate("/user-signin");
     Swal.fire({
       icon: "success",
       title: "User Sign Up Successful",
