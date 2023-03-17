@@ -34,6 +34,14 @@ export const UserSignUp = async ({
 };
 
 // USER SIGN IN
+export const UsersLogin = async ({ email, password }: UserData) => {
+  return await axios
+    .post(`${Endpoint}/loginuser`, {
+      email,
+      password,
+    })
+    .then((res) => res.data.data);
+};
 
 // AGENT SIGN UP
 
