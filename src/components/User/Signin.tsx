@@ -14,13 +14,13 @@ const Signin = () => {
                 <Hold>
 
                     <Right>
-                        <RightImg src="/images/signin.svg" />
+                        <RightImg src="/images/sign.svg" />
                     </Right>
 
                     <Left>
                         <Form>
 
-                            <div style={{fontSize:"20px", color:"#511378", fontWeight
+                            <div style={{fontSize:"20px", color:"#039EE6", fontWeight
                         :"700", marginBottom:"20px", textAlign:"center" }}>Sign in</div>
 
                             <Input type="text" placeholder="Email" />
@@ -51,7 +51,7 @@ export default Signin;
 // const Body = styled.div``;
 
 const RightImg = styled.img`
-width: 550px;
+width: 400px;
 `;
 
 const Right = styled.div`
@@ -63,7 +63,7 @@ width: 50%;
 const Already = styled.div`
 font-size: 13px;
 cursor: pointer;
-color: #2c9f45;
+color: #039EE6;
 margin-top: 15px;
 text-align: center;
 `;
@@ -71,7 +71,7 @@ text-align: center;
 const Button = styled.button`
 width: 105%;
 height: 40px;
-background: #511378;
+background: #039EE6;
 color: white;
 border: none;
 border-radius: 7px;
@@ -82,7 +82,7 @@ width: 100%;
 height: 40px;
 outline: none;
 border: none;
-box-shadow: 0 0 2px #511378;
+box-shadow: 0 0 2px #039EE6;
 margin-bottom: 20px;
 border-radius: 7px;
 padding-left: 10px;
@@ -91,7 +91,7 @@ padding-left: 10px;
 const Form = styled.form`
 width: 270px;
 height: 300px;
-box-shadow: 0 0 3px #511378;
+box-shadow: 0 0 3px #039EE6;
 border-radius: 10px 0 10px 0;
 padding: 30px; 
 padding-right: 40px;

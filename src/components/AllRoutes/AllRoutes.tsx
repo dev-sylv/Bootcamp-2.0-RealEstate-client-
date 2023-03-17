@@ -1,11 +1,15 @@
 import React from "react";
 import { useRoutes } from "react-router";
 import styled from "styled-components";
-import AdminHome from "../AdminDashboard/AdminHome";
-import AdminUpload from "../AdminDashboard/AdminUpload";
-import DashHeader from "../AdminDashboard/DashHeader";
+// import AdminHome from "../AdminDashboard/AdminHome";
+// import AdminUpload from "../AdminDashboard/AdminUpload";
+// import DashHeader from "../AdminDashboard/DashHeader";
 import SideBar from "../AdminDashboard/SideBar";
+import Contact from "../Contact/Contact";
 import HomeScreen from "../Home/HomeSreen";
+import Signin from "../User/Signin";
+import Signup from "../User/Signup";
+import SignUpHome from "../User/SignUpHome";
 
 
 const AllRoutes = () => {
@@ -14,7 +18,23 @@ const AllRoutes = () => {
         {
             path: "/",
             element: <HomeScreen />
-        }
+        },
+        {
+            path: "/contact",
+            element: <Contact />
+        },
+        {
+            path: "/getstarted",
+            element: <SignUpHome />
+        },
+        {
+            path: "/signup",
+            element: <Signup />
+        },
+        {
+            path: "/signin",
+            element: <Signin />
+        },
     ])
 
     return element

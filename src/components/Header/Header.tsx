@@ -34,16 +34,16 @@ const Header = () => {
               <Logo>LOGO</Logo>
 
               <Navs>
-                  <Nav>Home</Nav>
-                  {/* <Nav>Properties</Nav>
-                  <Nav>Agents</Nav> */}
-                  <Nav>Contact Us</Nav>
+                  <NavLink style={{textDecoration:"none"}} to="/"><Nav>Home</Nav></NavLink>
+                  <Nav>Properties</Nav>
+                  {/* <Nav>Agents</Nav> */}
+                  <NavLink style={{textDecoration:"none"}} to="/contact"><Nav>Contact Us</Nav></NavLink>
                   <Nav>About Us</Nav>
               </Navs>
 
               <Buttons>
 
-                <NavLink to="/signin" style={{textDecoration:"none"}}>
+                <NavLink style={{textDecoration:"none"}}  to="/signin">
                   <Button1 style={{textDecoration:"none"}}>Sign in</Button1>
                 </NavLink>
 
@@ -73,10 +73,10 @@ const Header = () => {
   
                   
 
-                  <Home>Home</Home>
-                  {/* <Home>Properties</Home>
-                  <Home>Agents</Home> */}
-                  <Home>Contact Us</Home>
+                  <NavLink style={{textDecoration:"none"}}  to="/"><Home>Home</Home></NavLink>
+                  <Home>Properties</Home>
+                  {/* <Home>Agents</Home> */}
+                  <NavLink style={{textDecoration:"none"}} to="/contact"><Home>Contact Us</Home></NavLink>
                   <Home>About Us</Home>
   
                     <hr style={{border:"1px solid #511378", width: "95%"}} />
@@ -85,7 +85,7 @@ const Header = () => {
                     <But1 style={{textDecoration:"none"}}>Sign In</But1>
                   </NavLink> 
 
-                  <NavLink to="getstarted" style={{textDecoration:"none"}}>
+                  <NavLink to="/getstarted" style={{textDecoration:"none"}}>
                     <But2 style={{textDecoration:"none"}}>Sign Up</But2>
                   </NavLink>
   
@@ -107,10 +107,14 @@ const Header = () => {
               <Logo>LOGO</Logo>
 
               <Navs>
-                  <Nav>Home</Nav>
-                  {/* <Nav>Properties</Nav>
-                  <Nav>Agents</Nav> */}
-                  <Nav>Contact Us</Nav>
+                  <NavLink style={{textDecoration:"none"}} to="/"><Nav>Home</Nav></NavLink>
+
+                  <Nav>Properties</Nav>
+
+                  {/* <Nav>Agents</Nav> */}
+
+                  <NavLink to="/contact" style={{textDecoration:"none"}}><Nav>Contact Us</Nav></NavLink>
+
                   <Nav>About Us</Nav>
               </Navs>
 
@@ -136,10 +140,10 @@ const Header = () => {
               (
                 <Toggle>
 
-                  <Home>Home</Home>
-                  {/* <Home>Properties</Home>
-                  <Home>Agents</Home> */}
-                  <Home>Contact Us</Home>
+                  <NavLink style={{textDecoration:"none"}} to="/"><Home>Home</Home></NavLink>
+                  <Home>Properties</Home>
+                  {/* <Home>Agents</Home> */}
+                  <NavLink style={{textDecoration:"none"}} to="/contact"><Home>Contact Us</Home></NavLink>
                   <Home>About Us</Home>
   
                     <hr style={{border:"1px solid #511378", width: "95%"}} />
@@ -295,8 +299,8 @@ outline: 0;
 grid-gap: 8px;
 align-items: center;
 background: 0 0;
-background-color:  #511378;
-border: 1px solid #511378;
+background-color:  #039EE6;
+border: 1px solid #039EE6;
 border: none;
 border-radius: 5px;
 cursor: pointer;
@@ -317,11 +321,11 @@ text-overflow: ellipsis;
 transition: all .20s ease-out;
 white-space: nowrap;
 :hover {
-    box-shadow: 4px 4px 0 #511378;
+    box-shadow: 4px 4px 0 #039EE6;
     transform: translate(-4px,-4px);
     background: transparent;
-    border: 1px solid #511378;
-    color: #511378;
+    border: 1px solid #039EE6;
+    color: #039EE6;
 }
 :focus-visible{
     outline-offset: 1px;
@@ -334,14 +338,14 @@ outline: 0;
 grid-gap: 8px;
 align-items: center;
 background: 0 0;
-border: 1px solid #511378;
+border: 1px solid #039EE6;
 border-radius: 5px;
 cursor: pointer;
 display: inline-flex;
 flex-shrink: 0;
 font-size: 16px;
 font-weight: 600;
-color: #511378;
+color: #039EE6;
 gap: 8px;
 justify-content: center;
 line-height: 1.5;
@@ -354,9 +358,9 @@ text-overflow: ellipsis;
 transition: all .20s ease-out;
 white-space: nowrap;
 :hover {
-    box-shadow: 4px 4px 0 #511378;
+    box-shadow: 4px 4px 0 #039EE6;
     // color: #00afff;
-    color: #511378;
+    color: #039EE6;
     transform: translate(-4px,-4px);
 }
 :focus-visible{
@@ -469,7 +473,7 @@ color: #ffffff;
 const Nav = styled.div`
 font-weight: 600;
 margin-right: 20px;
-color: #52325d;
+color: #039EE6;
 // color: #00afff;
 cursor: pointer;
 
@@ -490,8 +494,7 @@ align-items: center;
 const Logo = styled.div`
 font-size: 25px;
 font-weight: 600;
-// color: #00afff;
-color: #511378;
+color: #039EE6;
 
 @media screen and (max-width: 768px) {
   background-color: white;
