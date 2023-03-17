@@ -48,14 +48,14 @@ const Signup = () => {
     },
   });
 
-  const SignedUpUser = handleSubmit((data) => {
+  const SignedUpUser = handleSubmit((data: any) => {
     UsersSignUp.mutate(data);
     reset();
     navigate("/signin");
     Swal.fire({
       icon: "success",
       title: "User Sign Up Successfull",
-      text: UsersSignUp!.data!.message,
+      //   text: UsersSignUp!.data!.message,
     });
   });
 
@@ -182,6 +182,7 @@ const Input = styled.input<{ props: string }>`
 
 const Form = styled.form`
   width: 270px;
+  background-color: red;
   height: 450px;
   box-shadow: 0 0 3px #039ee6;
   border-radius: 10px 0 10px 0;
