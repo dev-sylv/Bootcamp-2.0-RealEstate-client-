@@ -7,8 +7,26 @@ import { UserLogin } from "../Global/ReduxState";
 import { useAppDispatch } from "../Global/Store";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
+  const dispatch = useAppDispatch();
+
+  const queryclient = useQueryClient();
+
+  // Setting up the schemas for our form using yup validator
+  const Schema = yup.object({
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(8).required(),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password")])
+      .required("Password do not match"),
+  });
+
   return (
     <>
       <Body>
