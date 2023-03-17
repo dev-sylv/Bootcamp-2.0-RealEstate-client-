@@ -15,7 +15,7 @@ const HomeScreen = () => {
     return(
         <>
 
-            <Header />
+            
             <Hero />
             <Sell />
             <Anywhere />
