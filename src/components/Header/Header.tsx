@@ -46,7 +46,7 @@ const Header = () => {
             </Navs>
 
             <Buttons>
-              <NavLink style={{ textDecoration: "none" }} to="/signin">
+              <NavLink style={{ textDecoration: "none" }} to="/login">
                 <Button1 style={{ textDecoration: "none" }}>Sign in</Button1>
               </NavLink>
 
@@ -119,7 +119,7 @@ const Header = () => {
             </Navs>
 
             <Buttons>
-              <NavLink to="/signin" style={{ textDecoration: "none" }}>
+              <NavLink to="/login" style={{ textDecoration: "none" }}>
                 <Button1 style={{ textDecoration: "none" }}>Sign in</Button1>
               </NavLink>
 
@@ -148,7 +148,7 @@ const Header = () => {
 
                 <hr style={{ border: "1px solid #511378", width: "95%" }} />
 
-                <NavLink to="/signin" style={{ textDecoration: "none" }}>
+                <NavLink to="/login" style={{ textDecoration: "none" }}>
                   <But1 style={{ textDecoration: "none" }}>Sign In</But1>
                 </NavLink>
 
