@@ -8,6 +8,8 @@ import { useAppDispatch } from "../Global/Store";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import { UserSignUp } from "../APICALLS/API";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -25,6 +27,30 @@ const Signup = () => {
       .string()
       .oneOf([yup.ref("password")])
       .required("Password do not match"),
+    phoneno: yup.number().required("Please enter your phone number"),
+  });
+
+  type formData = yup.InferType<typeof Schema>;
+
+  const {
+    handleSubmit,
+    reset,
+    formState: { errors },
+    register,
+  } = useForm<formData>({ resolver: yupResolver(Schema) });
+
+  //   To sign up users:
+  const UsersSignUp = useMutation({
+    mutationKey: ["New Users"],
+    mutationFn: UserSignUp,
+    onSuccess: (data: any) => {
+      dispatch(UserLogin(data.data));
+    },
+  });
+
+  const SignedUpUser = handleSubmit((data) => {
+    UsersSignUp.mutate(data);
+    reset();
   });
 
   return (
@@ -46,7 +72,11 @@ const Signup = () => {
                 Sign Up
               </div>
 
-              <Input type="text" placeholder="Full Name" />
+              <Input
+                type="text"
+                placeholder="Full Name"
+                {...register("name")}
+              />
 
               <Input type="text" placeholder="Email" />
 
