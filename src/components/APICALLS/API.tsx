@@ -30,9 +30,7 @@ export const UserSignUp = async ({
       confirmPassword,
       phoneno,
     })
-    .then((res) => {
-      res.data;
-    });
+    .then((res) => res.data.data);
 };
 
 // USER SIGN IN
