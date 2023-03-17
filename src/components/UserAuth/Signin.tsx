@@ -46,8 +46,8 @@ const Signin = () => {
     console.log(data);
     LoginUsers.mutate(data);
     reset();
-    // navigate("/userhome");
-    navigate("/");
+    navigate("/userhome");
+    // navigate("/");
     Swal.fire({
       icon: "success",
       title: "User Login Successful",
