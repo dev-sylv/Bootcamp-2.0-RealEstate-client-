@@ -90,7 +90,7 @@ export const AgentSignUp = async ({
 };
 
 // AGENT SIGN IN
-export const AgentsLogin = async ({ email, password }: AgentData) => {
+export const LoginAgents = async ({ email, password }: AgentData) => {
   return await axios
     .post(`${Endpoint}/loginagents`, {
       email,
@@ -100,7 +100,7 @@ export const AgentsLogin = async ({ email, password }: AgentData) => {
 };
 
 //   ADMIN SIGN IN
-export const AdminLogin = async ({ email, password }: AdminData) => {
+export const LoginAdmin = async ({ email, password }: AdminData) => {
   return await axios
     .post(`${Endpoint}/loginadmin`, {
       email,

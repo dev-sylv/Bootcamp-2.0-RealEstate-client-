@@ -13,6 +13,7 @@ import Signup from "../UserAuth/Signup";
 import AgentSignin from "../AgentAuth/Signin";
 import AgentSignUp from "../AgentAuth/Signup";
 import SignUpHome from "../UserAuth/SignUpHome";
+import SignInHome from "../UserAuth/SignInHome";
 import AdminSignin from "../AdminAuth/AdminLogin";
 
 const AllRoutes = () => {
@@ -28,6 +29,10 @@ const AllRoutes = () => {
     {
       path: "/getstarted",
       element: <SignUpHome />,
+    },
+    {
+      path: "/login",
+      element: <SignInHome />,
     },
     {
       path: "/user-signup",
