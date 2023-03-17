@@ -1,11 +1,37 @@
-import React from "react";
+import axios from "axios";
 
-const API = () => {
-  return <div>API</div>;
-};
+interface UserData {
+  name: string;
+  email: string;
+  Image: string;
+  Bio: string;
+  phoneno: number;
+  password: string;
+  confirmPassword: string;
+  role: string;
+  houses: {}[];
+}
 
-export default API;
+const Endpoint = "https://realestate-kuk6.onrender.com/api";
+
 // USER SIGN UP
+export const UserSignUp = async ({
+  name,
+  email,
+  password,
+  confirmPassword,
+  phoneno,
+}: UserData) => {
+  return await axios
+    .post(`${Endpoint}/registeruser`, {
+      name,
+      email,
+      password,
+      confirmPassword,
+      phoneno,
+    })
+    .then((res) => res.data.data);
+};
 
 // USER SIGN IN
 
