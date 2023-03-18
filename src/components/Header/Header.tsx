@@ -34,14 +34,14 @@ const Header = () => {
               </NavLink>
 
               <Nav>Properties</Nav>
-              {/* <Nav>Agents</Nav> */}
-
-              <NavLink style={{ textDecoration: "none" }} to="/contact">
-                <Nav>Contact Us</Nav>
-              </NavLink>
+              <Nav>Agents</Nav>
 
               <NavLink style={{ textDecoration: "none" }} to="/about-us">
                 <Nav>About Us</Nav>
+              </NavLink>
+
+              <NavLink style={{ textDecoration: "none" }} to="/contact">
+                <Nav>Contact Us</Nav>
               </NavLink>
             </Navs>
 
@@ -291,8 +291,8 @@ const Button2 = styled.button`
   grid-gap: 8px;
   align-items: center;
   background: 0 0;
-  background-color: #039ee6;
-  border: 1px solid #039ee6;
+  background-color: #511378;
+  border: 1px solid #511378;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -313,11 +313,11 @@ const Button2 = styled.button`
   transition: all 0.2s ease-out;
   white-space: nowrap;
   :hover {
-    box-shadow: 4px 4px 0 #039ee6;
+    box-shadow: 4px 4px 0 #511378;
     transform: translate(-4px, -4px);
     background: transparent;
-    border: 1px solid #039ee6;
-    color: #039ee6;
+    border: 1px solid #511378;
+    color: #511378;
   }
   :focus-visible {
     outline-offset: 1px;
@@ -329,14 +329,14 @@ const Button1 = styled.button`
   grid-gap: 8px;
   align-items: center;
   background: 0 0;
-  border: 1px solid #039ee6;
+  border: 1px solid #511378;
   border-radius: 5px;
   cursor: pointer;
   display: inline-flex;
   flex-shrink: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #039ee6;
+  color: #511378;
   gap: 8px;
   justify-content: center;
   line-height: 1.5;
@@ -349,9 +349,9 @@ const Button1 = styled.button`
   transition: all 0.2s ease-out;
   white-space: nowrap;
   :hover {
-    box-shadow: 4px 4px 0 #039ee6;
+    box-shadow: 4px 4px 0 #511378;
     // color: #00afff;
-    color: #039ee6;
+    color: #511378;
     transform: translate(-4px, -4px);
   }
   :focus-visible {
@@ -392,10 +392,10 @@ const Buttons = styled.div`
     }
 
     &:hover {
-      background: #2b2bff;
+      background: #511378;
       transition: all 0.5s;
       border-radius: 10px;
-      box-shadow: 0px 6px 15px #0000ff61;
+      box-shadow: 0px 6px 15px #511378;
       padding: 1.5rem 3rem 1.5rem 1.5rem;
       color: #ffffff;
 
@@ -435,10 +435,10 @@ const Buttons = styled.div`
     }
 
     &:hover {
-      background: #2b2bff;
+      background: #511378;
       transition: all 0.5s;
       border-radius: 10px;
-      box-shadow: 0px 6px 15px #0000ff61;
+      box-shadow: 0px 6px 15px #511378;
       padding: 1.5rem 3rem 1.5rem 1.5rem;
       color: #ffffff;
       &::after {
@@ -476,14 +476,15 @@ const Navs = styled.div`
 `;
 
 const Logo = styled.div`
-font-size: 25px;
-font-weight: 600;
-color: #039EE6;
+  font-size: 25px;
+  font-weight: 600;
+  color: #511378;
 
-@media screen and (max-width: 768px) {
-  background-color: white;
-  padding: 5px 5px;
-  border-radius: 6px;
+  @media screen and (max-width: 768px) {
+    background-color: white;
+    padding: 5px 5px;
+    border-radius: 6px;
+  }
 `;
 
 const Contain = styled.div`
