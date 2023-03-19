@@ -342,7 +342,7 @@ const Buttons = styled.div`
       background: #2b2bff;
       transition: all 0.5s;
       border-radius: 10px;
-      box-shadow: 0px 6px 15px #0000ff61;
+      box-shadow: 0px 6px 15px #511378;
       padding: 1.5rem 3rem 1.5rem 1.5rem;
       color: #ffffff;
 
@@ -385,7 +385,7 @@ const Buttons = styled.div`
       background: #2b2bff;
       transition: all 0.5s;
       border-radius: 10px;
-      box-shadow: 0px 6px 15px #0000ff61;
+      box-shadow: 0px 6px 15px #511378;
       padding: 1.5rem 3rem 1.5rem 1.5rem;
       color: #ffffff;
       &::after {
