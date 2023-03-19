@@ -23,15 +23,44 @@ const Hero = () => {
       <Body>
         <Contain>
           <Left>
-            <Buy>Buy, Sell and Rent Properties</Buy>
+            <div>
+              <Slider {...settings}>
+                <div>
+                  <Buy>Buy, Sell and Rent Properties</Buy>
 
-            <Need>
-              Need a perfect place to live right now? Here's the best offer for
-              you! Amazing house with the most comfort layout is fully equipped
-              with everything needed.
-            </Need>
+                  <Need>
+                    Need a perfect place to live right now? Here's the best
+                    offer for you! Amazing house with the most comfort layout is
+                    fully equipped with everything needed.
+                  </Need>
 
-            <Start to="/properties">Get Started</Start>
+                  <Start to="/properties">Get Started</Start>
+                </div>
+
+                <div>
+                  <Buy>Renting Made Simple</Buy>
+
+                  <Need>
+                    Browse the highest quality listings, apply online, sign your
+                    lease, and even pay your rent from any device.
+                  </Need>
+
+                  <Start to="/properties">Rent/Buy a House</Start>
+                </div>
+
+                <div>
+                  <Buy>Check out Your Rentals</Buy>
+
+                  <Need>
+                    Check out properties, process rent payments online, and sign
+                    up to buy or own a house all powered on a single platform.
+                    You’ll find your next home, in any style you prefer
+                  </Need>
+
+                  <Start to="/properties">Check Out Properties</Start>
+                </div>
+              </Slider>
+            </div>
           </Left>
 
           <Right>
@@ -90,10 +119,6 @@ const Hero = () => {
                 src="/images/dallas-1.jpg"
               />
             </Hold4>
-
-            {/* <Hold5>
-                            <Image style={{}} src="/images/dallas-1.jpg" /> 
-                        </Hold5> */}
           </Right>
         </Contain>
 
@@ -282,6 +307,7 @@ const Need = styled.div`
   font-size: 16px;
   font-weight: 600;
   margin-top: 35px;
+  line-height: 25px;
   margin-bottom: 35px;
   width: 90%;
 
@@ -307,9 +333,9 @@ const Need = styled.div`
 const Buy = styled.div`
   width: 100%;
   color: #511378;
-  // color: #00afff;
-  font-size: 65px;
+  font-size: 60px;
   font-weight: 600;
+  margin: 0;
 
   @media screen and (max-width: 768px) {
     font-size: 45px;
@@ -333,7 +359,7 @@ const Left = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 100;
+  z-index: 10;
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -366,7 +392,7 @@ const Body = styled.div`
   // padding-bottom: 50px;
   display: flex;
   justify-content: center;
-  align-itemjs: center;
+  align-items: center;
   position: relative;
   overflow: hidden;
 
