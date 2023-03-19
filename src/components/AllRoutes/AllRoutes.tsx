@@ -16,6 +16,7 @@ import SignUpHome from "../UserAuth/SignUpHome";
 import SignInHome from "../UserAuth/SignInHome";
 import AdminSignin from "../AdminAuth/AdminLogin";
 import Agents from "../AgentsComp/Agents";
+import Propeties from "../Properties/Properties";
 
 const AllRoutes = () => {
   const element = useRoutes([
@@ -30,6 +31,10 @@ const AllRoutes = () => {
     {
       path: "/contact",
       element: <Contact />,
+    },
+    {
+      path: "/properties",
+      element: <Propeties />,
     },
     {
       path: "/getstarted",

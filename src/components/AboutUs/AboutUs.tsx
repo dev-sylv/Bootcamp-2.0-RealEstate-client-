@@ -192,7 +192,7 @@ const About = () => {
           ))}
         </Ach>
       </OurAgent>
-      <Prefered />
+      {/* <Prefered /> */}
     </Container>
   );
 };

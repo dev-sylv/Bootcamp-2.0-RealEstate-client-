@@ -18,7 +18,6 @@ const HomeScreen = () => {
       <Sell />
       <Rent />
       <Prefered />
-      <Footer />
     </>
   );
 };
