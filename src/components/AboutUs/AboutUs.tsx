@@ -14,8 +14,21 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { AiFillHome } from "react-icons/ai";
+import { BsHouseCheckFill } from "react-icons/bs";
+import { GiFamilyHouse } from "react-icons/gi";
+import Prefered from "../Home/Prefered";
+import { useQuery } from "@tanstack/react-query";
+import { GetAllAgents } from "../APICALLS/API";
 
 const About = () => {
+  // API ENDPOINT TO GET ALL AGENTS:
+  const AllAgents = useQuery({
+    queryKey: ["Agents"],
+    queryFn: GetAllAgents,
+  });
+
+  console.log("All agents: ", AllAgents);
   return (
     <Container>
       <Contain>
@@ -99,67 +112,59 @@ const About = () => {
             </Desc>
           </SubHead>
         </One>
-        <TwoHolder>
-          <Two>
-            <Card>
-              <SubTitle>Search Property from Anywhere </SubTitle>
-              <BigIcon>
-                <SlBadge />
-              </BigIcon>
-              <Desc>
-                Real Estate means property and the fixed assets on it. Buying
-                and selling of home, land, property.
-              </Desc>
-            </Card>
-            <Card>
-              <SubTitle>Professional & Friendly Agents</SubTitle>
-              <BigIcon>
-                <SlUserFollowing />
-              </BigIcon>
-              <Desc>
-                Real Estate means property and the fixed assets on it. Buying
-                and selling of home, land, property.
-              </Desc>
-            </Card>
-            <Card>
-              <SubTitle>Buy and Sell Awesome Property</SubTitle>
-              <BigIcon>
-                <BsHandbag />
-              </BigIcon>
-              <Desc>
-                Real Estate means property and the fixed assets on it. Buying
-                and selling of home, land, property.
-              </Desc>
-            </Card>
-          </Two>
-          <NumberGraph>
-            <Data>
-              <Number>15300+</Number>
-              <Text>Happy Clients</Text>
-            </Data>
-            <Data>
-              <Number>5100+</Number>
-              <Text>Order on Queue</Text>
-            </Data>
-            <Data>
-              <Number>20+</Number>
-              <Text>Experience</Text>
-            </Data>
-            <Data>
-              <Number>62+</Number>
-              <Text>Awards Won</Text>
-            </Data>
-          </NumberGraph>
-        </TwoHolder>
+        <>
+          <Any>
+            <Contain>
+              <Box>
+                <Buy>Rent Property from Anywhere</Buy>
+
+                <Icons>
+                  <AiFillHome />
+                </Icons>
+
+                <Real>
+                  Real Estate means property and the fixed assets on it. Buying
+                  and selling of home, land, property
+                </Real>
+              </Box>
+
+              <Box>
+                <Buy>Professional & Friendly Agents</Buy>
+
+                <Icons>
+                  <BsHouseCheckFill />
+                </Icons>
+
+                <Real>
+                  Showcase your property to millions of renters. Collect rent
+                  entirely online. Make rental expense tracking a breeze
+                </Real>
+              </Box>
+
+              <Box>
+                <Buy>Buy and Own Awesome Property</Buy>
+
+                <Icons>
+                  <GiFamilyHouse />
+                </Icons>
+
+                <Real>
+                  Streamline rental maintenance requests. Create account online
+                  in minutes. List. Manage. Earn. It's really that simple.
+                </Real>
+              </Box>
+            </Contain>
+          </Any>
+        </>
       </OurBest>
       <OurAgent>
         <SubHead className="sub2">
-          Our Best Features<Line className="line2"></Line>
+          Our Agents<Line className="line2"></Line>
           <Desc className="desc">
             <p>
-              Bring to the table win-win survival strategies to ensure proactive{" "}
-              <br />
-              domination. At the end of the day.
+              Agents Bring to the table win-win survival strategies to ensure
+              proactive <br />
+              domination at the end of the day.
             </p>
           </Desc>
         </SubHead>
@@ -220,6 +225,7 @@ const About = () => {
           </Ac>
         </Ach>
       </OurAgent>
+      <Prefered />
     </Container>
   );
 };
@@ -388,6 +394,7 @@ const Card = styled.div`
 
 const TwoHolder = styled.div`
   height: auto;
+  /* background-color: green; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -412,7 +419,8 @@ const Two = styled.div`
 const One = styled.div`
   height: auto;
   width: auto;
-  background-color: #f4f6fd;
+  /* background-color: #f4f6fd; */
+  /* background-color: blue; */
   padding: 50px 20px;
   padding-bottom: 200px;
 
@@ -436,9 +444,9 @@ const One = styled.div`
 `;
 
 const OurBest = styled.div`
-  height: 1200px;
-  width: auto;
-  background-color: white;
+  padding: 10px 0px 10px 0px;
+  width: 100%;
+  /* background-color: red; */
   position: relative;
   margin-bottom: 200px;
 
@@ -484,6 +492,52 @@ const Right = styled.div`
   align-items: flex-end;
 
   position: relative;
+`;
+const Real = styled.div`
+  font-size: 15px;
+`;
+
+const Icons = styled.div`
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 27px;
+`;
+
+const Buy = styled.div`
+  font-size: 24px;
+  font-weight: 600;
+`;
+
+const Box = styled.div`
+  width: 250px;
+  height: 250px;
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #511378;
+  color: white;
+`;
+
+const Contains = styled.div`
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: red; */
+  gap: 3rem;
+  flex-wrap: wrap;
+  z-index: 12;
+`;
+
+const Any = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-bottom: 50px;
+  padding-top: 50px;
 `;
 
 const Button = styled(Link)`
@@ -597,11 +651,11 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
   background-color: white;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
-  */ button {
+  button {
     cursor: pointer;
   }
 `;

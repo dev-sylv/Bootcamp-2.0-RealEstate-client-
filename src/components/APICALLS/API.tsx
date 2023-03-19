@@ -113,3 +113,8 @@ export const LoginAdmin = async ({ email, password }: AdminData) => {
     })
     .then((res) => res.data.data);
 };
+
+// GET ALL AGENTS:
+export const GetAllAgents = async () => {
+  return await axios.get(`${Endpoint}/getagents`).then((res) => res.data);
+};
