@@ -1,18 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../Assets/trekka-removebg-preview.png";
-import {
-  BsFillTelephoneFill,
-  BsArrowUpSquare,
-  BsBoxArrowDown,
-} from "react-icons/bs";
+import { BsArrowUpSquare, BsBoxArrowDown } from "react-icons/bs";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FiFacebook } from "react-icons/fi";
 import { TfiLinkedin } from "react-icons/tfi";
 import { TbBrandTwitter } from "react-icons/tb";
-import { BiLocationPlus } from "react-icons/bi";
-import { MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
 
 const Footer = () => {
   return (
@@ -21,9 +16,9 @@ const Footer = () => {
         <FirstDiv>
           <Logo src={logo} />
           <p>
-            Mercy and Favour real estate <br />
-            best real estate deals <br />
-            get your dream house <br />
+            Trekka real estate <br />
+            Real best estate deals <br />
+            Saves you from trekking to get your dream house <br />
           </p>
           <p>Connect with us on all our social media</p>
           <Icons>
@@ -45,33 +40,48 @@ const Footer = () => {
           <Buyers>
             <Icon>Customers</Icon>
 
-            <Max>Home</Max>
-            <Max>Agents</Max>
-            <Max>Buy</Max>
-            <Max>Rent</Max>
+            <NavLink style={{ textDecoration: "none" }} to="/">
+              <Max>Home</Max>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/agents">
+              <Max>Agents</Max>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/login">
+              <Max>Buy a house</Max>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/properties">
+              <Max>Rent a house</Max>
+            </NavLink>
           </Buyers>
 
           <Buyers>
             <Icon>About</Icon>
-
-            <Max>About Us</Max>
-            <Max>Contact Us</Max>
-            <Max>Services</Max>
-            <Max>Promotion</Max>
+            <NavLink style={{ textDecoration: "none" }} to="/about-us">
+              <Max>About Us</Max>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/contact">
+              <Max>Contact Us</Max>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/properties">
+              <Max>Services</Max>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/getstarted">
+              <Max>Rent</Max>
+            </NavLink>
           </Buyers>
 
           <Buyers>
             <Icon>Legal</Icon>
 
-            <Max>Terms & Conditions</Max>
-            <Max>FAQs</Max>
-            <Max>C of O</Max>
-            <Max>Legal Experts</Max>
-            <Max></Max>
+            <Max to="/">Terms & Conditions</Max>
+            <Max to="/">FAQs</Max>
+            <Max to="/">C of O</Max>
+            <Max to="/">Legal Experts</Max>
+            <Max to="/"></Max>
           </Buyers>
         </SecondDiv>
       </Wrapper>
-      <ArrowToTop to="Hero">
+      <ArrowToTop to="Hero" smooth="true">
         <BsArrowUpSquare />
       </ArrowToTop>
     </Container>
@@ -86,6 +96,11 @@ const Max = styled.div`
   margin-top: 10px;
   color: #511378;
   cursor: pointer;
+  text-decoration: none;
+  :hover {
+    color: #511378b0;
+    text-decoration: wavy;
+  }
 `;
 
 const Icon = styled.div`
@@ -109,14 +124,15 @@ const Buyers = styled.div`
 `;
 
 const ArrowToTop = styled(Link)`
-  position: fixed;
-  right: 30px;
-  font-size: 35px;
-  cursor: pointer;
   color: #511378;
+  position: fixed;
+  right: 60px;
+  font-size: 40px;
+  bottom: 25px;
+  cursor: pointer;
   transition: all 350ms;
   :hover {
-    margin-top: -5px;
+    transform: scale(1.1);
   }
 `;
 
@@ -140,7 +156,6 @@ const Wrapper = styled.div`
 `;
 const FirstDiv = styled.div`
   width: 300px;
-  margin-top: 50px;
   @media screen and (max-width: 425px) {
     margin-left: 30px;
   }
@@ -153,7 +168,6 @@ const FirstDiv = styled.div`
 `;
 const SecondDiv = styled.div`
   width: 65%;
-  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   @media screen and (max-width: 1024px) {
@@ -168,49 +182,6 @@ const Logo = styled.img`
   width: 50%;
   height: 50%;
   object-fit: contain;
-`;
-const Box2 = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media screen and (max-width: 768px) {
-    margin-left: 80px;
-  }
-  @media screen and (max-width: 425px) {
-    margin-left: 0px;
-  }
-  div {
-    display: flex;
-    margin-left: 15px;
-  }
-`;
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media screen and (max-width: 768px) {
-    /* margin-left: 60px; */
-  }
-  div {
-    display: flex;
-    margin-left: 15px;
-  }
-`;
-const Nav = styled(Link)`
-  padding-bottom: 20px;
-  font-size: 18px;
-  color: rgb(129, 132, 141);
-  transition: all 400ms;
-  cursor: pointer;
-  text-decoration: none;
-  :hover {
-    text-decoration: underline;
-    margin-top: -1px;
-  }
-`;
-const Nav1 = styled.div`
-  padding-bottom: 20px;
-  font-size: 18px;
-  color: #511378;
-  transition: all 400ms;
 `;
 const Icons = styled.div`
   display: flex;

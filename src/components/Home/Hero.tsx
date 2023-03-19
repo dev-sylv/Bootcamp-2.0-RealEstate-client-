@@ -20,7 +20,7 @@ const Hero = () => {
 
   return (
     <>
-      <Body>
+      <Body id="hero">
         <Contain>
           <Left>
             <div>
