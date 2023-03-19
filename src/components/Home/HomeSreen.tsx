@@ -9,23 +9,19 @@ import Prefered from "./Prefered";
 import Rent from "./Rent";
 import Sell from "./Sell";
 
-
 const HomeScreen = () => {
-
-    return(
-        <>
-
-            <Header />
-            <Hero />
-            <Sell />
-            <Anywhere />
-            <Rent />
-            <Location />
-            <Prefered />
-            <Footer />
-
-        </>
-    )
-}
+  return (
+    <>
+      {/* <Header /> */}
+      <Hero />
+      <Sell />
+      <Anywhere />
+      <Rent />
+      <Location />
+      <Prefered />
+      {/* <Footer /> */}
+    </>
+  );
+};
 
 export default HomeScreen;

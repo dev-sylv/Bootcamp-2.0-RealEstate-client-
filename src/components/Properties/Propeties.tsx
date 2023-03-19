@@ -265,12 +265,12 @@ const Propeties: React.FC = () => {
                 </List>
               </Content>
             </Feature>
-            <Pro360ImageHold>
+            {/* <Pro360ImageHold>
               <Pro360Text>360</Pro360Text>
               <Property360>
                 <Pro360Image />
               </Property360>
-            </Pro360ImageHold>
+            </Pro360ImageHold> */}
           </PropertyMain>
         </MainContent>
       </Hero>
