@@ -12,22 +12,25 @@ import img5 from "../Assets/black_photographer.jpg";
 import { GrFacebookOption } from "react-icons/gr";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
     <Container>
       <Contain>
         <Wrap>
-          <Text>Contact Us</Text>
+          <Texts>About Us</Texts>
           <Subtext>
             {" "}
             <NavLink to="/">
               <span>Home</span>
             </NavLink>{" "}
-            / Contact Us
+            / About Us
           </Subtext>
         </Wrap>
       </Contain>
+
       <Overview>
         <Left>
           <Title>LITTLE ABOUT TREKA</Title>
@@ -71,7 +74,7 @@ const About = () => {
               Passionate People
             </Li>
           </Quality>
-          <Button>About Our Team</Button>
+          <Button to="/contact">About Our Team</Button>
         </Left>
         <Right>
           <ImageOne>
@@ -246,7 +249,7 @@ const Shh = styled.div`
 `;
 
 const Shd = styled.div`
-  background-color: #00afff;
+  background-color: #511378;
   color: white;
   width: 40px;
   height: 40px;
@@ -328,7 +331,7 @@ const Text = styled.div`
 `;
 
 const Number = styled.div`
-  color: #00afff;
+  color: #511378;
   font-size: 50px;
   font-weight: bolder;
 `;
@@ -359,7 +362,7 @@ const BigIcon = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  color: #00afff;
+  color: #511378;
   margin: 30px 0px;
 `;
 
@@ -483,14 +486,15 @@ const Right = styled.div`
   position: relative;
 `;
 
-const Button = styled.button`
+const Button = styled(Link)`
+  text-decoration: none;
   height: 50px;
   width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 7px;
-  background-color: #00afff;
+  background-color: #511378;
   color: white;
   transition: all 390ms;
   border: none;
@@ -499,7 +503,7 @@ const Button = styled.button`
   font-weight: 600;
 
   :hover {
-    background-color: black;
+    background-color: #5113787a;
   }
 `;
 
@@ -515,7 +519,7 @@ const Li = styled.div`
 
 const Icon = styled.div`
   font-size: 25px;
-  color: #00afff;
+  color: #511378;
   margin-right: 20px;
   margin-top: 5px;
 `;
@@ -529,7 +533,7 @@ const Quality = styled.div`
 const Line = styled.div`
   height: 3px;
   width: 50px;
-  background-color: #00afff;
+  background-color: #511378;
   border-radius: 20px;
   border: none;
   margin-top: 30px;
@@ -547,6 +551,7 @@ const SubHead = styled.h1`
   font-size: 50px;
   font-weight: 500;
 `;
+const Title = styled.div``;
 
 const Overview = styled.div`
   height: auto;
@@ -557,29 +562,7 @@ const Overview = styled.div`
   padding: 100px 50px;
 `;
 
-const Bcrom = styled.p``;
-
-const Heading = styled.h1`
-  font-size: 50px;
-`;
-
-const Title = styled.p`
-  font-weight: bold;
-  color: silver;
-  margin-bottom: 0px;
-`;
-
-const Top = styled.div`
-  height: 150px;
-  width: auto;
-  background-color: #f4f6fd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 50px;
-  margin-bottom: 100px;
-`;
-const Text = styled.div`
+const Texts = styled.div`
   font-size: 40px;
   font-weight: 700;
   color: white;
@@ -607,14 +590,18 @@ const Contain = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 `;
 
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: white;
-
-  button {
+  /* display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  */ button {
     cursor: pointer;
   }
 `;
