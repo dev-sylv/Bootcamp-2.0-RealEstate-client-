@@ -70,9 +70,6 @@ const Footer = () => {
             <Max></Max>
           </Buyers>
         </SecondDiv>
-        <br />
-        <br />
-        <br />
       </Wrapper>
       <ArrowToTop to="Hero">
         <BsArrowUpSquare />
@@ -87,7 +84,7 @@ const Max = styled.div`
   font-size: 14px;
   font-weight: 600;
   margin-top: 10px;
-  color: #52325d;
+  color: #511378;
   cursor: pointer;
 `;
 
@@ -116,7 +113,7 @@ const ArrowToTop = styled(Link)`
   right: 30px;
   font-size: 35px;
   cursor: pointer;
-  color: #005555;
+  color: #511378;
   transition: all 350ms;
   :hover {
     margin-top: -5px;
@@ -129,10 +126,14 @@ const Container = styled.div`
   margin: 0;
   position: relative;
   color: #511378;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Wrapper = styled.div`
+  width: 90%;
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   font-size: 18px;
@@ -140,14 +141,13 @@ const Wrapper = styled.div`
 const FirstDiv = styled.div`
   width: 300px;
   margin-top: 50px;
-  margin-left: 90px;
   @media screen and (max-width: 425px) {
     margin-left: 30px;
   }
 
   p {
     font-size: 15px;
-    color: gray;
+
     line-height: 23px;
   }
 `;
@@ -209,7 +209,7 @@ const Nav = styled(Link)`
 const Nav1 = styled.div`
   padding-bottom: 20px;
   font-size: 18px;
-  color: rgb(129, 132, 141);
+  color: #511378;
   transition: all 400ms;
 `;
 const Icons = styled.div`
@@ -220,20 +220,20 @@ const Circle = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #074237;
+  background-color: #511378;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 350ms;
   color: white;
-  border: 3px solid #074237;
+  border: 3px solid #511378;
   margin: 10px;
   cursor: pointer;
   :hover {
-    border: 2px solid #074237;
+    border: 2px solid #511378;
     border-color: #16335a;
     background-color: white;
-    color: #074237;
+    color: #511378;
     margin-top: -1px;
   }
 `;
