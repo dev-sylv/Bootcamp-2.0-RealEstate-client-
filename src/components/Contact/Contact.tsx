@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaTelegramPlane, FaLocationArrow } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -14,10 +15,18 @@ const Contact = () => {
             background: "transparent",
           }}></div>
 
-        <Top>
-          <Heading>About Us</Heading>
-          <Bcrom>Home / About Us</Bcrom>
-        </Top>
+        <Contain>
+          <Wrap>
+            <Text>Contact Us</Text>
+            <Subtext>
+              {" "}
+              <NavLink to="/">
+                <span>Home</span>
+              </NavLink>{" "}
+              / Contact Us
+            </Subtext>
+          </Wrap>
+        </Contain>
 
         <Cards>
           <Card>
@@ -28,8 +37,8 @@ const Contact = () => {
             <CardText>About</CardText>
 
             <CardText2>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis rerum deserunt consequatur rem odit.
+              LInsurgent Mindset <br /> Enduring Results <br /> Passionate
+              People
             </CardText2>
           </Card>
 
@@ -41,8 +50,8 @@ const Contact = () => {
             <CardText>E-Mail</CardText>
 
             <CardText2>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis rerum deserunt consequatur rem odit.
+              +234 90611 80473 <br /> Best support via email <br />
+              bootcamprealestate4codelab@gmail.com
             </CardText2>
           </Card>
 
@@ -54,8 +63,7 @@ const Contact = () => {
             <CardText>Address</CardText>
 
             <CardText2>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis rerum deserunt consequatur rem odit.
+              31 Haruna Estate, Off Oregie Road, Ajegunle, Lagos, Nigeria.
             </CardText2>
           </Card>
         </Cards>
@@ -79,10 +87,6 @@ const Contact = () => {
 };
 
 export default Contact;
-
-// const Body = styled.div``;
-
-// const Body = styled.div``;
 
 const ContactImg = styled.img`
   width: 400px;
@@ -165,27 +169,35 @@ const Cards = styled.div`
   margin-top: 50px;
 `;
 
-const Heading = styled.h1`
-  font-size: 50px;
+const Text = styled.div`
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
 `;
-
-const Title = styled.p`
-  font-weight: bold;
-  color: silver;
-  margin-bottom: 0px;
+const Subtext = styled.div`
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  span {
+    text-decoration: none;
+    color: white;
+  }
 `;
-
-const Top = styled.div`
-  height: 150px;
-  width: auto;
-  background-color: #f4f6fd;
+const Wrap = styled.div`
+  width: 90%;
+  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 50px;
-  margin-bottom: 100px;
 `;
-const Bcrom = styled.p``;
+const Contain = styled.div`
+  width: 100%;
+  height: 140px;
+  background-color: #511378;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Body = styled.div`
   width: 100%;
@@ -194,5 +206,6 @@ const Body = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // margin-top: 120px;
   padding-bottom: 50px;
 `;
