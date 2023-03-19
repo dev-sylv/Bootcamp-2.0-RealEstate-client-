@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Sell = () => {
   return (
@@ -9,9 +10,9 @@ const Sell = () => {
         <Contain>
           <First>
             Properties for Sale
-            <button>
+            <Button to="/properties">
               Explore <AiOutlineArrowRight />{" "}
-            </button>
+            </Button>
           </First>
 
           <Pictures>
@@ -157,23 +158,22 @@ const First = styled.div`
   @media screen and (max-width: 320px) {
     font-size: 14px;
   }
+`;
+const Button = styled(Link)`
+  color: #511378;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  button {
-    color: #511378;
-    cursor: pointer;
-    font-weight: 700;
-    border: none;
-    background-color: transparent;
-    width: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @media screen and (max-width: 544px) {
-      font-size: 12px;
-      font-weight: 500;
-      width: 70px;
-    }
+  @media screen and (max-width: 544px) {
+    font-size: 12px;
+    font-weight: 500;
+    width: 70px;
   }
 `;
 
