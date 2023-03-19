@@ -118,3 +118,9 @@ export const LoginAdmin = async ({ email, password }: AdminData) => {
 export const GetAllAgents = async () => {
   return await axios.get(`${Endpoint}/getagents`).then((res) => res.data);
 };
+
+// GET SINGLE AGENTS:
+
+// GET ONE HOUSE:
+
+// GET SINGLE HO

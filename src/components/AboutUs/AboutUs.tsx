@@ -169,60 +169,27 @@ const About = () => {
           </Desc>
         </SubHead>
         <Ach>
-          <Ac>
-            <Aimgh>
-              <Aimg src={img3} />
-              <Shh>
-                <Shd>
-                  <GrFacebookOption />
-                </Shd>
-                <Shd>
-                  <AiOutlineTwitter />
-                </Shd>
-                <Shd>
-                  <FaLinkedinIn />
-                </Shd>
-              </Shh>
-            </Aimgh>
-            <Name>Tunde Olukoya</Name>
-            <Role>Senior Broke</Role>
-          </Ac>
-          <Ac>
-            <Aimgh>
-              <Aimg src={img4} />
-              <Shh>
-                <Shd>
-                  <GrFacebookOption />
-                </Shd>
-                <Shd>
-                  <AiOutlineTwitter />
-                </Shd>
-                <Shd>
-                  <FaLinkedinIn />
-                </Shd>
-              </Shh>
-            </Aimgh>
-            <Name>Ebenezer Okunte</Name>
-            <Role>House Broker</Role>
-          </Ac>
-          <Ac>
-            <Aimgh>
-              <Aimg src={img5} />
-              <Shh>
-                <Shd>
-                  <GrFacebookOption />
-                </Shd>
-                <Shd>
-                  <AiOutlineTwitter />
-                </Shd>
-                <Shd>
-                  <FaLinkedinIn />
-                </Shd>
-              </Shh>
-            </Aimgh>
-            <Name>Sylvia Adimike</Name>
-            <Role>Photographer</Role>
-          </Ac>
+          {AllAgents?.data?.data?.map((agent: any) => (
+            <Ac>
+              <Aimgh>
+                <Aimg src={img3} />
+                <Shh>
+                  <Shd>
+                    <GrFacebookOption />
+                  </Shd>
+                  <Shd>
+                    <AiOutlineTwitter />
+                  </Shd>
+                  <Shd>
+                    <FaLinkedinIn />
+                  </Shd>
+                </Shh>
+              </Aimgh>
+              <Name>{agent.name}</Name>
+              <Role>{agent.Bio}</Role>
+              <Role>{agent.phoneno}</Role>
+            </Ac>
+          ))}
         </Ach>
       </OurAgent>
       <Prefered />
@@ -286,24 +253,26 @@ const Aimgh = styled.div`
 `;
 
 const Ac = styled.div`
-  height: auto;
+  /* height: auto; */
   width: 300px;
-  padding: 0px 10px;
-  margin-right: 20px;
+  background-color: red;
+  padding: 10px 0px 10px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 20px;
 `;
 
 const Ach = styled.div`
-  height: auto;
-  width: auto;
+  width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  padding: 100px 20px;
-  overflow-y: hidden;
+  padding: 20px 0px 20px 0px;
+  /* overflow-y: hidden; */
+  background-color: blue;
+  flex-wrap: wrap;
 `;
 
 const OurAgent = styled.div`
