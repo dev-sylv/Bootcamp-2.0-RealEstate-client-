@@ -14,9 +14,9 @@ const HomeScreen = () => {
     <>
       <Hero />
       <Anywhere />
+      <Location />
       <Sell />
       <Rent />
-      <Location />
       <Prefered />
       <Footer />
     </>
