@@ -1,5 +1,5 @@
 import React from "react";
-import { useRoutes } from "react-router";
+import { useRoutes } from "react-router-dom";
 import styled from "styled-components";
 import About from "../AboutUs/AboutUs";
 // import AdminHome from "../AdminDashboard/AdminHome";
@@ -15,12 +15,17 @@ import AgentSignUp from "../AgentAuth/Signup";
 import SignUpHome from "../UserAuth/SignUpHome";
 import SignInHome from "../UserAuth/SignInHome";
 import AdminSignin from "../AdminAuth/AdminLogin";
+import Agents from "../AgentsComp/Agents";
 
 const AllRoutes = () => {
   const element = useRoutes([
     {
       path: "/",
       element: <HomeScreen />,
+    },
+    {
+      path: "/agents",
+      element: <Agents />,
     },
     {
       path: "/contact",
