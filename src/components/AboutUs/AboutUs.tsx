@@ -16,10 +16,18 @@ import { FaLinkedinIn } from "react-icons/fa";
 const About = () => {
   return (
     <Container>
-      <Top>
-        <Heading>About Us</Heading>
-        <Bcrom>Home / About Us</Bcrom>
-      </Top>
+      <Contain>
+        <Wrap>
+          <Text>Contact Us</Text>
+          <Subtext>
+            {" "}
+            <NavLink to="/">
+              <span>Home</span>
+            </NavLink>{" "}
+            / Contact Us
+          </Subtext>
+        </Wrap>
+      </Contain>
       <Overview>
         <Left>
           <Title>LITTLE ABOUT TREKA</Title>
@@ -570,6 +578,35 @@ const Top = styled.div`
   align-items: center;
   padding: 0px 50px;
   margin-bottom: 100px;
+`;
+const Text = styled.div`
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+`;
+const Subtext = styled.div`
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  span {
+    text-decoration: none;
+    color: white;
+  }
+`;
+const Wrap = styled.div`
+  width: 90%;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const Contain = styled.div`
+  width: 100%;
+  height: 140px;
+  background-color: #511378;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Container = styled.div`
