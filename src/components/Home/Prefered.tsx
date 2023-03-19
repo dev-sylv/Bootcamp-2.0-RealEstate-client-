@@ -68,23 +68,8 @@ const Prefered = () => {
 
 export default Prefered;
 
-// const Choice = styled.div``;
-
-// const Choice = styled.div``;
-
-// const Choice = styled.div``;
-
-// const House = styled.img`
-//   position: absolute;
-//   width: 600px;
-//   right: -250px;
-//   top: 50px;
-// `;
-
 const Right = styled.div`
   width: 50%;
-  /* position: relative; */
-  /* background-color: pink; */
   img {
     width: 100%;
     height: 100%;
@@ -126,7 +111,6 @@ const Left = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   color: white;
-  /* background-color: brown; */
 
   @media screen and (max-width: 768px) {
     justify-content: center;
@@ -138,7 +122,6 @@ const Bottom = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 20px;
-  /* background-color: blue; */
 
   @media screen and (max-width: 768px) {
     justify-content: center;
