@@ -164,7 +164,9 @@ const First = styled.div`
 const Button = styled(Link)`
   color: #511378;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 17px;
+  text-decoration: none;
   border: none;
   background-color: transparent;
   width: 80px;
