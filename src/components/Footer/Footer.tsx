@@ -72,12 +72,18 @@ const Footer = () => {
 
           <Buyers>
             <Icon>Legal</Icon>
-
-            <Max to="/">Terms & Conditions</Max>
-            <Max to="/">FAQs</Max>
-            <Max to="/">C of O</Max>
-            <Max to="/">Legal Experts</Max>
-            <Max to="/"></Max>
+            <NavLink style={{ textDecoration: "none" }} to="/about-us">
+              <Max>Terms & Conditions</Max>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/contact">
+              <Max>FAQs</Max>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/login">
+              <Max>Sell your house</Max>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/getstarted">
+              <Max>Legal Experts</Max>
+            </NavLink>
           </Buyers>
         </SecondDiv>
       </Wrapper>

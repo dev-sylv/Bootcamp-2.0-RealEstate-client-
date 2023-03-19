@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+// import trekka from "../Assets/Screenshot_2023-03-18_164334-removebg-preview.png";
 import trekka from "../Assets/Screenshot 2023-03-18 164334.png";
 
 const Prefered = () => {
