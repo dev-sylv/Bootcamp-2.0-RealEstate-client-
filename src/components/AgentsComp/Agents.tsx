@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { FaTelegramPlane, FaLocationArrow } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+import agent from "../Assets/black_photographer.jpg";
 
 const Contact = () => {
   return (
     <>
-      <Body>
+      <Body id="Hero">
         <div
           style={{
             width: "100%",
@@ -28,8 +29,29 @@ const Contact = () => {
           </Wrap>
         </Contain>
         <Card>
-          <Img></Img>
-          <Profile></Profile>
+          <Img>
+            <img src={agent} alt="" />
+          </Img>
+          <Profile>
+            <ProfileWrap>
+              <h3>Name</h3>
+              <h5>Bio</h5>
+              <Div>
+                <Email>
+                  <span>
+                    <FaLocationArrow />
+                  </span>{" "}
+                  email
+                </Email>
+                <Phonenumber>
+                  <span>
+                    <FaTelegramPlane />
+                  </span>{" "}
+                  08877e
+                </Phonenumber>
+              </Div>
+            </ProfileWrap>
+          </Profile>
         </Card>
       </Body>
     </>
@@ -38,13 +60,54 @@ const Contact = () => {
 
 export default Contact;
 
-const Profile = styled.div``;
-const Img = styled.div``;
+const Email = styled.div``;
+const Phonenumber = styled.div``;
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  span {
+    margin-right: 10px;
+  }
+`;
+
+const ProfileWrap = styled.div`
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  h3 {
+    margin: 0;
+  }
+  h5 {
+    margin: 0;
+  }
+`;
+
+const Profile = styled.div`
+  width: 100%;
+  height: 40%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const Img = styled.div`
+  width: 100%;
+  height: 60%;
+  background-color: green;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
 const Card = styled.div`
   width: 350px;
-  height: 600px;
+  height: 500px;
   background-color: red;
   margin: 10px;
+  border-radius: 5px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
