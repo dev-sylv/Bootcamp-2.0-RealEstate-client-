@@ -54,7 +54,7 @@ const Get = styled.div`
   margin-bottom: 30px;
   font-size: 20px;
   font-weight: 700;
-  color: #039ee6;
+  color: #511378;
 `;
 
 const Button1 = styled.button`
@@ -62,8 +62,8 @@ const Button1 = styled.button`
   grid-gap: 8px;
   align-items: center;
   background: 0 0;
-  background-color: #039ee6;
-  border: 1px solid #039ee6;
+  background-color: #511378;
+  border: 1px solid #511378;
   border: none;
   border-radius: 80px;
   cursor: pointer;
@@ -86,11 +86,11 @@ const Button1 = styled.button`
   margin-bottom: 40px;
 
   :hover {
-    box-shadow: 4px 4px 0 #039ee6;
+    box-shadow: 4px 4px 0 #511378;
     transform: translate(-4px, -4px);
     background: transparent;
-    border: 1px solid #039ee6;
-    color: #039ee6;
+    border: 1px solid #511378;
+    color: #511378;
   }
   :focus-visible {
     outline-offset: 1px;
