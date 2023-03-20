@@ -14,7 +14,7 @@ function App() {
       {/* <AdminRoutes />  */}
       {/* {/* <AgentRoutes /> */}
       {/* <UserRoutes /> */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

@@ -17,7 +17,7 @@ import { TiTick } from "react-icons/ti";
 
 const Propeties: React.FC = () => {
   return (
-    <Container>
+    <Container id="Hero">
       <Hero>
         <ImageHold>
           <Image src={img2} />
@@ -659,9 +659,9 @@ const Image = styled.img`
 `;
 
 const HeroDetail = styled.div`
-  height: auto;
+  /* height: auto; */
   width: auto;
-  padding: 50px 50px;
+  padding: 50px 0px 50px 0px;
   display: flex;
   justify-content: start;
   align-items: flex-start;
@@ -669,16 +669,16 @@ const HeroDetail = styled.div`
 
 const ImageHold = styled.div`
   height: 700px;
-  width: auto;
+  width: 100%;
 `;
 
 const Hero = styled.div`
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 100%;
   margin-bottom: 100px;
 `;
 
 const Container = styled.div`
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 100%;
 `;
