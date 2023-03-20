@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
+import { Link, NavLink } from "react-router-dom";
+import trekkalogo from "../Assets/trekka-removebg-preview.png";
 
 const Header = () => {
   const [scroll, setScroll] = useState<Boolean>(false);
@@ -25,10 +27,11 @@ const Header = () => {
       {scroll ? (
         <Head bg="white" style={{ boxShadow: "0 0 2px #511378" }}>
           <Contain>
-            <Logo>LOGO</Logo>
+            <Logo style={{ textDecoration: "none" }} to="/">
+              <img src={trekkalogo} alt="" />
+            </Logo>
 
             <Navs>
-
               <NavLink style={{ textDecoration: "none" }} to="/">
                 <Nav>Home</Nav>
               </NavLink>
@@ -48,7 +51,24 @@ const Header = () => {
               <NavLink style={{ textDecoration: "none" }} to="/contact">
                 <Nav>Contact Us</Nav>
               </NavLink>
+            </Navs>
 
+            <Buttons>
+              <NavLink style={{ textDecoration: "none" }} to="/login">
+                <Button1 style={{ textDecoration: "none" }}>Sign in</Button1>
+              </NavLink>
+
+              <NavLink to="/getstarted" style={{ textDecoration: "none" }}>
+                <Button2 style={{ textDecoration: "none" }}>Sign up</Button2>
+              </NavLink>
+            </Buttons>
+
+            <Mobile onClick={menu}>
+              <AiOutlineMenu />
+            </Mobile>
+
+            {show ? (
+              <Toggle>
                 <NavLink style={{ textDecoration: "none" }} to="/">
                   <Home>Home</Home>
                 </NavLink>
@@ -69,11 +89,15 @@ const Header = () => {
                   <Home>Contact Us</Home>
                 </NavLink>
 
-
                 <hr style={{ border: "1px solid #511378", width: "95%" }} />
 
-                <But1>Sign In</But1>
-                <But2>Sign Up</But2>
+                <NavLink to="/login" style={{ textDecoration: "none" }}>
+                  <But1 style={{ textDecoration: "none" }}>Sign In</But1>
+                </NavLink>
+
+                <NavLink to="/getstarted" style={{ textDecoration: "none" }}>
+                  <But2 style={{ textDecoration: "none" }}>Sign Up</But2>
+                </NavLink>
               </Toggle>
             ) : null}
           </Contain>
@@ -81,16 +105,15 @@ const Header = () => {
       ) : (
         <Head bg="">
           <Contain>
-
             <Logo style={{ textDecoration: "none" }} to="/">
               <img src={trekkalogo} alt="" />
             </Logo>
             <Navs>
-              <NavLink style={{ textDecoration: "none" }} to="/properties">
+              <NavLink style={{ textDecoration: "none" }} to="/">
                 <Nav>Home</Nav>
               </NavLink>
 
-              <NavLink to="/" style={{ textDecoration: "none" }}>
+              <NavLink to="/properties" style={{ textDecoration: "none" }}>
                 <Nav>Properties</Nav>
               </NavLink>
 
@@ -101,7 +124,28 @@ const Header = () => {
               <NavLink to="/about-us" style={{ textDecoration: "none" }}>
                 <Nav>About Us</Nav>
               </NavLink>
-a
+
+              <NavLink to="/contact" style={{ textDecoration: "none" }}>
+                <Nav>Contact Us</Nav>
+              </NavLink>
+            </Navs>
+
+            <Buttons>
+              <NavLink to="/login" style={{ textDecoration: "none" }}>
+                <Button1 style={{ textDecoration: "none" }}>Sign in</Button1>
+              </NavLink>
+
+              <NavLink to="/getstarted" style={{ textDecoration: "none" }}>
+                <Button2 style={{ textDecoration: "none" }}>Sign up</Button2>
+              </NavLink>
+            </Buttons>
+
+            <Mobile onClick={menu}>
+              <AiOutlineMenu />
+            </Mobile>
+
+            {show ? (
+              <Toggle>
                 <NavLink style={{ textDecoration: "none" }} to="/">
                   <Home>Home</Home>
                 </NavLink>
@@ -121,8 +165,17 @@ a
                   <Home>Contact Us</Home>
                 </NavLink>
 
+                <hr style={{ border: "1px solid #511378", width: "95%" }} />
 
-               
+                <NavLink to="/login" style={{ textDecoration: "none" }}>
+                  <But1 style={{ textDecoration: "none" }}>Sign In</But1>
+                </NavLink>
+
+                <NavLink to="/getstarted" style={{ textDecoration: "none" }}>
+                  <But2 style={{ textDecoration: "none" }}>Sign Up</But2>
+                </NavLink>
+              </Toggle>
+            ) : null}
           </Contain>
         </Head>
       )}
@@ -358,7 +411,7 @@ const Buttons = styled.div`
     }
 
     &:hover {
-      background: #2b2bff;
+      background: #511378;
       transition: all 0.5s;
       border-radius: 10px;
       box-shadow: 0px 6px 15px #511378;
@@ -401,7 +454,7 @@ const Buttons = styled.div`
     }
 
     &:hover {
-      background: #2b2bff;
+      background: #511378;
       transition: all 0.5s;
       border-radius: 10px;
       box-shadow: 0px 6px 15px #511378;
@@ -423,8 +476,7 @@ const Buttons = styled.div`
 const Nav = styled.div`
   font-weight: 600;
   margin-right: 20px;
-  color: #52325d;
-  // color: #00afff;
+  color: #511378;
   cursor: pointer;
 
   :hover {
@@ -441,11 +493,15 @@ const Navs = styled.div`
   }
 `;
 
-const Logo = styled.div`
-  font-size: 25px;
-  font-weight: 600;
-  // color: #00afff;
-  color: #511378;
+const Logo = styled(Link)`
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
   @media screen and (max-width: 768px) {
     background-color: white;

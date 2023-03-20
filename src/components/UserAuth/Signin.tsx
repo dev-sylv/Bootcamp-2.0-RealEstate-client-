@@ -70,7 +70,7 @@ const Signin = () => {
               <div
                 style={{
                   fontSize: "20px",
-                  color: "#039EE6",
+                  color: "#511378",
                   fontWeight: "700",
                   marginBottom: "20px",
                   textAlign: "center",
@@ -132,14 +132,14 @@ const Already = styled.div`
 const Button = styled.button`
   width: 105%;
   height: 40px;
-  background: #039ee6;
+  background: #511378;
   color: white;
   border: none;
   border-radius: 7px;
   cursor: pointer;
   transition: all 350ms;
   :hover {
-    background-color: #039ee6c7;
+    background-color: #511378;
   }
 `;
 
@@ -148,7 +148,7 @@ const Input = styled.input<{ props: string }>`
   height: 40px;
   outline: ${({ props }) => (props ? "1px solid red" : "none")};
   border: none;
-  box-shadow: 0 0 2px #039ee6;
+  box-shadow: 0 0 2px #511378;
   margin-bottom: 20px;
   border-radius: 7px;
   padding-left: 10px;
@@ -157,7 +157,7 @@ const Input = styled.input<{ props: string }>`
 const Form = styled.form`
   width: 270px;
   height: 300px;
-  box-shadow: 0 0 3px #039ee6;
+  box-shadow: 0 0 3px #511378;
   border-radius: 10px 0 10px 0;
   padding: 30px;
   padding-right: 40px;
