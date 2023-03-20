@@ -109,11 +109,11 @@ const Header = () => {
               <img src={trekkalogo} alt="" />
             </Logo>
             <Navs>
-              <NavLink style={{ textDecoration: "none" }} to="/properties">
+              <NavLink style={{ textDecoration: "none" }} to="/">
                 <Nav>Home</Nav>
               </NavLink>
 
-              <NavLink to="/" style={{ textDecoration: "none" }}>
+              <NavLink to="/properties" style={{ textDecoration: "none" }}>
                 <Nav>Properties</Nav>
               </NavLink>
 
