@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 const Contact = () => {
   const settings = {
     dots: true,
-    fade: true,
+    // fade: true,
     infinite: true,
     speed: 800,
     slidesToShow: 3,
@@ -19,32 +19,6 @@ const Contact = () => {
     autoplay: true,
     cssEase: "linear",
     autoplaySpeed: 5000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
   return (
     <>
@@ -68,83 +42,6 @@ const Contact = () => {
             </Subtext>
           </Wrap>
         </Contain>
-        <CardHold {...settings}>
-          <Card>
-            <Img>
-              <img src={agent} alt="" />
-            </Img>
-            <Profile>
-              <ProfileWrap>
-                <h3>Name</h3>
-                <h5>Bio</h5>
-                <Div>
-                  <Email>
-                    <span>
-                      <FaLocationArrow />
-                    </span>{" "}
-                    email
-                  </Email>
-                  <Phonenumber>
-                    <span>
-                      <FaTelegramPlane />
-                    </span>{" "}
-                    08877e
-                  </Phonenumber>
-                </Div>
-              </ProfileWrap>
-            </Profile>
-          </Card>
-          <Card>
-            <Img>
-              <img src={agent} alt="" />
-            </Img>
-            <Profile>
-              <ProfileWrap>
-                <h3>Name</h3>
-                <h5>Bio</h5>
-                <Div>
-                  <Email>
-                    <span>
-                      <FaLocationArrow />
-                    </span>{" "}
-                    email
-                  </Email>
-                  <Phonenumber>
-                    <span>
-                      <FaTelegramPlane />
-                    </span>{" "}
-                    08877e
-                  </Phonenumber>
-                </Div>
-              </ProfileWrap>
-            </Profile>
-          </Card>
-          <Card>
-            <Img>
-              <img src={agent} alt="" />
-            </Img>
-            <Profile>
-              <ProfileWrap>
-                <h3>Name</h3>
-                <h5>Bio</h5>
-                <Div>
-                  <Email>
-                    <span>
-                      <FaLocationArrow />
-                    </span>{" "}
-                    email
-                  </Email>
-                  <Phonenumber>
-                    <span>
-                      <FaTelegramPlane />
-                    </span>{" "}
-                    08877e
-                  </Phonenumber>
-                </Div>
-              </ProfileWrap>
-            </Profile>
-          </Card>
-        </CardHold>
       </Body>
     </>
   );
@@ -157,6 +54,7 @@ const CardHold = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: red;
 `;
 
 const Email = styled.div``;
@@ -248,8 +146,8 @@ const Body = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   // margin-top: 120px;
   padding-bottom: 50px;
 `;
