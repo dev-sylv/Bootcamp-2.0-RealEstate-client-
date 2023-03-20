@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import img1 from "../Assets/Owner_Properties_page.jpg";
-import img2 from "../Assets/Properties_Hero_Image.jpg";
-import img3 from "../Assets/Properties_Image.jpg";
+import img1 from "../Assets/img_4.jpg";
+import img2 from "../Assets/img_4.jpg";
+import img3 from "../Assets/img_4.jpg";
 import { ImLocation2 } from "react-icons/im";
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
