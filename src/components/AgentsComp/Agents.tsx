@@ -1,25 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import { FaTelegramPlane, FaLocationArrow } from "react-icons/fa";
-import { AiOutlineMail } from "react-icons/ai";
+import { GiSmartphone } from "react-icons/gi";
+import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import agent from "../Assets/black_photographer.jpg";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { GetAllAgents } from "../APICALLS/API";
+import { useQuery } from "@tanstack/react-query";
 
 const Contact = () => {
-  const settings = {
-    dots: true,
-    // fade: true,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    cssEase: "linear",
-    autoplaySpeed: 5000,
-  };
+  // API ENDPOINT TO GET ALL AGENTS:
+  const AllAgents = useQuery({
+    queryKey: ["Agents"],
+    queryFn: GetAllAgents,
+  });
   return (
     <>
       <Body id="Hero">
@@ -42,6 +35,35 @@ const Contact = () => {
             </Subtext>
           </Wrap>
         </Contain>
+        <CardHold>
+          {AllAgents?.isLoading ? (
+            <Card>
+              <Img>
+                <img src={agent} alt="" />
+              </Img>
+              <Profile>
+                <ProfileWrap>
+                  <h3>Name</h3>
+                  <h5>Bio</h5>
+                  <Div>
+                    <Email>
+                      <span>
+                        <MdOutlineMarkEmailUnread />
+                      </span>{" "}
+                      email
+                    </Email>
+                    <Phonenumber>
+                      <span>
+                        <GiSmartphone />
+                      </span>{" "}
+                      08877e
+                    </Phonenumber>
+                  </Div>
+                </ProfileWrap>
+              </Profile>
+            </Card>
+          ) : null}
+        </CardHold>
       </Body>
     </>
   );
