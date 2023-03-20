@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { GiSmartphone } from "react-icons/gi";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { NavLink } from "react-router-dom";
-import agent from "../Assets/black_photographer.jpg";
+import agents from "../Assets/black_photographer.jpg";
 import { GetAllAgents } from "../APICALLS/API";
 import { useQuery } from "@tanstack/react-query";
-import Circles from "react-spinners";
+import { BarLoader } from "react-spinners";
 
 const Contact = () => {
   // API ENDPOINT TO GET ALL AGENTS:
@@ -37,28 +37,29 @@ const Contact = () => {
           </Wrap>
         </Contain>
         <CardHold>
-          {AllAgents?.isLoading ? <Circles /> : null}
+          {AllAgents?.isLoading ? <BarLoader /> : null}
 
-          {AllAgents?.data?.data.map((agent) => (
-            <Card key={agent?.id}>
+          {AllAgents?.data?.data.map((agent: any) => (
+            <Card key={agent._id}>
               <Img>
-                <img src={agent} alt="" />
+                <img src={agents} alt="" />
               </Img>
               <Profile>
                 <ProfileWrap>
                   <h3>{agent.name}</h3>
-                  <h5>{agent.bio}</h5>
+                  <h5>{agent.Bio}</h5>
                   <Div>
                     <Email>
-                      <span>
+                      <Circle>
                         <MdOutlineMarkEmailUnread />
-                      </span>{" "}
+                      </Circle>
                       {agent.email}
                     </Email>
+
                     <Phonenumber>
-                      <span>
+                      <Circle>
                         <GiSmartphone />
-                      </span>{" "}
+                      </Circle>
                       {agent.phoneno}
                     </Phonenumber>
                   </Div>
@@ -75,28 +76,54 @@ const Contact = () => {
 export default Contact;
 
 const CardHold = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: red;
+  margin-top: 50px;
+  /* background-color: red; */
 `;
 
-const Email = styled.div``;
-const Phonenumber = styled.div``;
+const Email = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const Phonenumber = styled.div`
+  display: flex;
+  display: flex;
+  align-items: center;
+`;
 const Div = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  span {
-    margin-right: 10px;
+`;
+const Circle = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #511378;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 3px solid #511378;
+  margin-top: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 350ms;
+  :hover {
+    border: 2px solid #511378;
+    border-color: #511378;
+    background-color: white;
+    color: #511378;
   }
 `;
-
 const ProfileWrap = styled.div`
   width: 80%;
   height: 80%;
-  background-color: white;
+  /* background-color: white; */
   h3 {
     margin: 0;
   }
@@ -108,7 +135,7 @@ const ProfileWrap = styled.div`
 const Profile = styled.div`
   width: 100%;
   height: 40%;
-  background-color: black;
+  /* background-color: black; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,7 +143,7 @@ const Profile = styled.div`
 const Img = styled.div`
   width: 100%;
   height: 60%;
-  background-color: green;
+  /* background-color: green; */
   img {
     width: 100%;
     height: 100%;
@@ -126,7 +153,7 @@ const Img = styled.div`
 const Card = styled.div`
   width: 350px;
   height: 500px;
-  background-color: red;
+  /* background-color: red; */
   margin: 10px;
   border-radius: 5px;
   overflow: hidden;
@@ -134,6 +161,10 @@ const Card = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  :hover {
+    color: #511378;
+  }
 `;
 
 const Text = styled.div`

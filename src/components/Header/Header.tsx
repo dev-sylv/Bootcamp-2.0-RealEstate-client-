@@ -36,7 +36,7 @@ const Header = () => {
                 <Nav>Home</Nav>
               </NavLink>
 
-              <NavLink style={{ textDecoration: "none" }} to="/">
+              <NavLink style={{ textDecoration: "none" }} to="/properties">
                 <Nav>Properties</Nav>
               </NavLink>
 
@@ -73,7 +73,7 @@ const Header = () => {
                   <Home>Home</Home>
                 </NavLink>
 
-                <NavLink style={{ textDecoration: "none" }} to="/">
+                <NavLink style={{ textDecoration: "none" }} to="/properties">
                   <Nav>Properties</Nav>
                 </NavLink>
 
@@ -109,7 +109,7 @@ const Header = () => {
               <img src={trekkalogo} alt="" />
             </Logo>
             <Navs>
-              <NavLink style={{ textDecoration: "none" }} to="/">
+              <NavLink style={{ textDecoration: "none" }} to="/properties">
                 <Nav>Home</Nav>
               </NavLink>
 
@@ -150,7 +150,7 @@ const Header = () => {
                   <Home>Home</Home>
                 </NavLink>
 
-                <NavLink style={{ textDecoration: "none" }} to="/">
+                <NavLink style={{ textDecoration: "none" }} to="/properties">
                   <Home>Properties</Home>
                 </NavLink>
 
