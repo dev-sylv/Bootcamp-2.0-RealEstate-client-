@@ -4,8 +4,48 @@ import { FaTelegramPlane, FaLocationArrow } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import agent from "../Assets/black_photographer.jpg";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Contact = () => {
+  const settings = {
+    dots: true,
+    fade: true,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    cssEase: "linear",
+    autoplaySpeed: 5000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <>
       <Body id="Hero">
@@ -28,37 +68,96 @@ const Contact = () => {
             </Subtext>
           </Wrap>
         </Contain>
-        <Card>
-          <Img>
-            <img src={agent} alt="" />
-          </Img>
-          <Profile>
-            <ProfileWrap>
-              <h3>Name</h3>
-              <h5>Bio</h5>
-              <Div>
-                <Email>
-                  <span>
-                    <FaLocationArrow />
-                  </span>{" "}
-                  email
-                </Email>
-                <Phonenumber>
-                  <span>
-                    <FaTelegramPlane />
-                  </span>{" "}
-                  08877e
-                </Phonenumber>
-              </Div>
-            </ProfileWrap>
-          </Profile>
-        </Card>
+        <CardHold {...settings}>
+          <Card>
+            <Img>
+              <img src={agent} alt="" />
+            </Img>
+            <Profile>
+              <ProfileWrap>
+                <h3>Name</h3>
+                <h5>Bio</h5>
+                <Div>
+                  <Email>
+                    <span>
+                      <FaLocationArrow />
+                    </span>{" "}
+                    email
+                  </Email>
+                  <Phonenumber>
+                    <span>
+                      <FaTelegramPlane />
+                    </span>{" "}
+                    08877e
+                  </Phonenumber>
+                </Div>
+              </ProfileWrap>
+            </Profile>
+          </Card>
+          <Card>
+            <Img>
+              <img src={agent} alt="" />
+            </Img>
+            <Profile>
+              <ProfileWrap>
+                <h3>Name</h3>
+                <h5>Bio</h5>
+                <Div>
+                  <Email>
+                    <span>
+                      <FaLocationArrow />
+                    </span>{" "}
+                    email
+                  </Email>
+                  <Phonenumber>
+                    <span>
+                      <FaTelegramPlane />
+                    </span>{" "}
+                    08877e
+                  </Phonenumber>
+                </Div>
+              </ProfileWrap>
+            </Profile>
+          </Card>
+          <Card>
+            <Img>
+              <img src={agent} alt="" />
+            </Img>
+            <Profile>
+              <ProfileWrap>
+                <h3>Name</h3>
+                <h5>Bio</h5>
+                <Div>
+                  <Email>
+                    <span>
+                      <FaLocationArrow />
+                    </span>{" "}
+                    email
+                  </Email>
+                  <Phonenumber>
+                    <span>
+                      <FaTelegramPlane />
+                    </span>{" "}
+                    08877e
+                  </Phonenumber>
+                </Div>
+              </ProfileWrap>
+            </Profile>
+          </Card>
+        </CardHold>
       </Body>
     </>
   );
 };
 
 export default Contact;
+
+const CardHold = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
 
 const Email = styled.div``;
 const Phonenumber = styled.div``;
