@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import agent from "../Assets/black_photographer.jpg";
 import { GetAllAgents } from "../APICALLS/API";
 import { useQuery } from "@tanstack/react-query";
+import Circles from "react-spinners";
 
 const Contact = () => {
   // API ENDPOINT TO GET ALL AGENTS:
@@ -36,33 +37,35 @@ const Contact = () => {
           </Wrap>
         </Contain>
         <CardHold>
-          {AllAgents?.isLoading ? (
-            <Card>
+          {AllAgents?.isLoading ? <Circles /> : null}
+
+          {AllAgents?.data?.data.map((agent) => (
+            <Card key={agent?.id}>
               <Img>
                 <img src={agent} alt="" />
               </Img>
               <Profile>
                 <ProfileWrap>
-                  <h3>Name</h3>
-                  <h5>Bio</h5>
+                  <h3>{agent.name}</h3>
+                  <h5>{agent.bio}</h5>
                   <Div>
                     <Email>
                       <span>
                         <MdOutlineMarkEmailUnread />
                       </span>{" "}
-                      email
+                      {agent.email}
                     </Email>
                     <Phonenumber>
                       <span>
                         <GiSmartphone />
                       </span>{" "}
-                      08877e
+                      {agent.phoneno}
                     </Phonenumber>
                   </Div>
                 </ProfileWrap>
               </Profile>
             </Card>
-          ) : null}
+          ))}
         </CardHold>
       </Body>
     </>
